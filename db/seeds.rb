@@ -6,12 +6,64 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-5.times do |n|
+bike11 = Product.create(
+    :name => "Black Bike", 
+    :description => "Sublime dark tones to match those moody days. ", 
+    :image_url => "bike_black.jpg",
+    :color => "Black")
 
-    Product.create(
-        :name => "Seed Generated Product #{n}", 
-        :description => "I created this bike through the seed file.", 
-        :image_url => "img/product#{n}.jpg",
-        :color => "blue")
-end
+bike12 = Product.create(
+    :name => "Blue Bike", 
+    :description => "An awesome bike for riding along the coast.", 
+    :image_url => "bike_blue.jpg",
+    :color => "Blue")
 
+bike13 = Product.create(
+    :name => "Green Bike", 
+    :description => "Dependable bike for those wandering days.", 
+    :image_url => "bike_green.jpg",
+    :color => "Green")
+
+
+bike14 = Product.create(
+    :name => "White Bike", 
+    :description => "The white knoght of bike. Reliable and robust.", 
+    :image_url => "bike_white.jpg",
+    :color => "White")
+
+bike15 = Product.create(
+    :name => "Shell white bike", 
+    :description => "For the more refined biker.", 
+    :image_url => "bike_white2.jpg",
+    :color => "Shell White")
+
+bike21 = Product.create(
+    :name => "Black Bike", 
+    :description => "Sublime dark tones to match those moody days. ", 
+    :image_url => "bike_black.jpg",
+    :color => "Black")
+
+bike22 = Product.create(
+    :name => "Blue Bike", 
+    :description => "An awesome bike for riding along the coast.", 
+    :image_url => "bike_blue.jpg",
+    :color => "Blue")
+
+bike23 = Product.create(
+    :name => "Green Bike", 
+    :description => "Dependable bike for those wandering days.", 
+    :image_url => "bike_green.jpg",
+    :color => "Green")
+
+
+bike24 = Product.create(
+    :name => "White Bike", 
+    :description => "The white knoght of bike. Reliable and robust.", 
+    :image_url => "bike_white.jpg",
+    :color => "White")
+
+bike25 = Product.create(
+    :name => "Shell white bike", 
+    :description => "For the more refined biker.", 
+    :image_url => "bike_white2.jpg",
+    :color => "Shell White")
