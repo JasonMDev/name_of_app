@@ -11,24 +11,29 @@
   <div class="row">
     
     <!-- Populate the products on the index page. -->
-    <% @products.each do |product| %>
-      <div class="col-xs-12 col-sm-4 col-md-4 col-lg-3">
-        <hr>
-        <%= image_tag(product.image_url, class: "img-responsive") %>
-        <h4><%= product.name %></h4>
-        <p><%= product.description %><p>
-        <p>Color: <%= product.color %><p>  
-        <hr>
-        <strong>Price: £ 100.00<strong>
-        <!-- <hr> -->
-        <!-- Activate by adding "=" after "%" -->
-        <p><% link_to 'Show', product %></p>
-        <p><% link_to 'Edit', edit_product_path(product) %></p>
-        <p><% link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' } %></p> 
-
-      </div> <!-- /col -->
-    <% end %>
-    
+    <%= render @products %>
+        
   </div><!-- /row -->
 </div><!-- /container-fluid -->
+
+<!-- DIFFERENT PARTIALS -->
+<!-- Partial 1: Original -->
+<!-- Original -->
+<!--  @products.each do |product|  -->
+<!--    render partial: "product", locals: {product: product} -->
+<!--  end  -->
+
+<!-- Partial 2: Original -->
+<!-- Refactored Partial: If partial, model and variable are all same. -->
+<!--  @products.each do |product|  -->
+<!--    render product -->
+<!--  end  -->
+
+<!-- Partial 3: Refactored Partial -->
+<!-- @products is an array of objects, i.e collection. -->
+<!-- render partial: "product", collection: @products -->
+
+<!-- Partial 4: Refactored Partial -->
+<!-- Objects of collection match partial -->
+<!-- render @products -->
 

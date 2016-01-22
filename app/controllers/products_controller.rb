@@ -4,7 +4,12 @@ class ProductsController < ApplicationController
   # GET /products
   # GET /products.json
   def index
+    # All products
     @products = Product.all
+    # This action will override the default layout 
+    # and call the file products.html.erb  
+    # inside app/views/layouts
+    # render layout: "products"
   end
 
   # GET /products/1

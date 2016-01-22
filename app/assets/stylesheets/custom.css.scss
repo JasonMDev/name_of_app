@@ -73,6 +73,14 @@ p {
   line-height: 1.7em;
 }
 
+a {
+    color: $gray;
+    text-alignment: center;
+    &:hover {
+      color: $gray-darker;
+    }
+  }
+
 
 /* header */
 

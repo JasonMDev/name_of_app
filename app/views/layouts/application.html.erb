@@ -1,44 +1,25 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>BikeBasingstokeRailsDemo</title>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <%= csrf_meta_tags %>
-</head>
-<body>
+  <head>
+    <title>BikeBasingstokeRailsDemo</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= render 'shared/shim' %>
+  </head>
+  <body>
+    <!-- Header -->
+      <%= render 'shared/header' %>
+      <!-- Body -->
+      <div class="container">
+        <!-- Normal Body -->
+        <%= yield %>
+        <!-- Footer -->
+        <%= render 'shared/footer' %>
+      </div>
 
-<header class="navbar navbar-fixed-top navbar-inverse">
-  <div class="container">
-    <nav>
-      <ul class="nav navbar-nav navbar-right">
-        <li><%= link_to "Home", root_path %></li>
-        <li><%= link_to "About", '#' %></li>
-        <li><%= link_to "Contact", '#' %></li>
-        <li><%= link_to 'Show Products', products_path %></li>         
-      </ul>
-    </nav>
-  </div>
-</header>
-
-<%= yield %>
-
-<footer class="footer">
-  <small>
-    &copy; 2015 Bike Basingstoke Rails Demo
-  </small>
-  <nav>
-    <ul>
-      <li><%= link_to "Home", root_path %></li>
-      <li><%= link_to "About",   '#' %></li>
-      <li><%= link_to "Contact", '#' %></li>
-      <li><%= link_to 'Show Products', products_path %></li>     
-    </ul>
-  </nav>
-</footer>
-
-</body>
+  </body>
 </html>
