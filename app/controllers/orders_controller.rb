@@ -1,6 +1,7 @@
 class OrdersController < ApplicationController
 	
 	def index
+		# Just here for sho untill used.
 		render "static_pages/index"
 	end
 

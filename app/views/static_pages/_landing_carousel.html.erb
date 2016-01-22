@@ -1,0 +1,40 @@
+<!-- Landing Carousel -->
+<div class="container-fluid">
+  <h1>Popular products</h1>
+  <!-- Carousel -->
+  <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+
+    <!-- Indicators -->
+    <ol class="carousel-indicators">
+      <% (0..(@products.length-1)).each do |n| %>
+      <li data-target="#carousel-example-generic" data-slide-to="<%=n%>" class=<%="active" if n == 0 %>></li>      
+      <% end %> 
+    </ol>    
+    <!-- /Indicators -->
+
+    <!-- Wrapper for slides -->
+    <div class="carousel-inner" role="listbox">
+      <!-- Populate the products on the carousel page. -->
+      <% @products.each do |product| %>
+      <div class="item<%=" active" if product == @products.first %>">
+        <%= image_tag(product.image_url, class: "img-responsive") %>
+        <div class="carousel-caption">
+          <%= product.name %>
+        </div>
+      </div><!-- / Slide X -->
+      <% end %>      
+    </div><!-- / Wrapper for slides -->
+
+    <!-- Controls -->
+    <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+      <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+      <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a>
+    <!-- /Controls -->
+
+  </div> <!-- /carousel slide -->  
+</div><!-- /container-fluid -->

@@ -8,7 +8,7 @@ class StaticPagesController < ApplicationController
 		# Featured product.
 		@featured_product = Product.last
 		# First 3 products.
-		@products = Product.limit(3)
+		@products = Product.limit(5)
 	end  
 
   def index
