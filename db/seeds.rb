@@ -67,3 +67,10 @@ bike25 = Product.create(
     :description => "For the more refined biker.", 
     :image_url => "bike_white2.jpg",
     :color => "Shell White")
+
+
+order1 = Order.create(:user_id=> nil, :product_id => 15, :total => nil)
+order2 = Order.create(:user_id=> nil, :product_id => 16, :total => nil)
+order3 = Order.create(:user_id=> nil, :product_id => 17, :total => nil)
+order4 = Order.create(:user_id=> nil, :product_id => 18, :total => nil)
+order5 = Order.create(:user_id=> nil, :product_id => 195, :total => nil)
