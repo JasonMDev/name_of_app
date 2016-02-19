@@ -23,6 +23,7 @@ class ProductsController < ApplicationController
   # GET /products/1
   # GET /products/1.json
   def show
+    # to get the show to work, just comment below out.
     redirect_to :back
     #redirect_to(request.env['HTTP_REFERER'])
     
@@ -85,6 +86,6 @@ class ProductsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def product_params
-      params.require(:product).permit(:name, :description, :image_url, :color)
+      params.require(:product).permit(:name, :description, :image_url, :color, :location)
     end
 end

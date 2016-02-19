@@ -3,12 +3,13 @@
     <%= image_tag(product.image_url, class: "img-responsive") %>
     <h4><%= product.name %></h4>
     <p><%= product.description %><p>
-    <p>Color: <%= product.color %><p>  
+    <p>Color: <%= product.color %><p>
+    <p>Location: <%= product.location %><p>  
     <hr>
     <strong>Price: £ 100.00</strong>
     <!-- <hr> -->
     <!-- Activate by adding "=" after "%" -->
-    <p><%= link_to 'Show', product %></p>
+    <p><% link_to 'Show', product %></p>
     <p><% link_to 'Edit', edit_product_path(product) %></p>
     <p><% link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' } %></p> 
 </div> <!-- /col -->
