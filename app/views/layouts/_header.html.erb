@@ -1,0 +1,23 @@
+<header class="navbar navbar-fixed-top navbar-inverse">
+  <div class="container navbar-container">
+    <%= link_to "Bike Basingstoke Rails Demo", root_path, id: "logo" %>
+    <nav>
+      <ul class="nav navbar-nav navbar-right">
+        <li><%= link_to "Home", root_path %></li>
+        <li><%= link_to "About", static_pages_about_path %></li>
+        <li><%= link_to "Contact", static_pages_contact_path %></li>
+        <li><%= link_to 'Show Products', products_path %></li>
+        <li>
+          <%= form_tag("/products", method: "get", class: "navbar-form navbar-right", role: "search" ) do %>
+            <div class="form-group">
+              <%= label_tag(:q, "Search for:", id: "label-search", class: "form-search") %>
+              <%= text_field_tag :q, value = nil, class: "form-control form-search", placeholder: "Item" %>
+            </div>
+            <%= submit_tag("Go", class: "btn btn-primary form-search", id: "btn-search") %>            
+          <% end %>
+        </li>          
+        <!-- Remember login if and else here from sample app -->        
+      </ul>
+    </nav>
+  </div>
+</header>

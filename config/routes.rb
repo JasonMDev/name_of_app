@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
-  root 'products#index'
-  #root 'static_pages#landing_page'
+  #root 'products#index'
+  root 'static_pages#landing_page'
   # get 'static_pages/index'
   get 'static_pages/about'
   get 'static_pages/contact'

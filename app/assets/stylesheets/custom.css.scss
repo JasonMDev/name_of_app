@@ -84,6 +84,11 @@ a {
 
 /* header */
 
+.navbar-container {
+  margin: 0 auto;
+  padding: 0 0.5em;  
+}
+
 #logo {
   float: left;
   margin-right: 10px;
@@ -97,6 +102,23 @@ a {
     color: white;
     text-decoration: none;
   }
+}
+
+.form-search {
+  margin: 0;
+  padding: 6px;
+}
+
+#label-search {
+  color: #9d9d9d;
+}
+
+#q {
+  width: 100px;
+}
+
+#btn-search {
+  width: 50px;  
 }
 
 /* footer */

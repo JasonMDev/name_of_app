@@ -4,12 +4,20 @@ class ProductsController < ApplicationController
   # GET /products
   # GET /products.json
   def index
-    # All products
-    @products = Product.all
-    # This action will override the default layout 
-    # and call the file products.html.erb  
-    # inside app/views/layouts
-    # render layout: "products"
+    if params[:q]
+      search_term = params[:q]
+      # Search for the term in DEVELOPMENT using SQL using "LIKE"
+      @products = Product.where("name LIKE ?", "%#{search_term}%") if Rails.env.development?
+      # Search for the term in PRODUCTION env. using PostGRES "ilike"
+      @products = Product.where("name ilike ?", "%#{search_term}%") if Rails.env.production?
+    else
+      # All products
+      @products = Product.all
+      # This action will override the default layout 
+      # and call the file products.html.erb  
+      # inside app/views/layouts
+      # render layout: "products"
+    end      
   end
 
   # GET /products/1
