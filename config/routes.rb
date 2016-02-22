@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :users
   #root 'products#index'
   root 'static_pages#landing_page'
   # get 'static_pages/index'
