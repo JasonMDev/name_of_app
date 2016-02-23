@@ -1,8 +1,10 @@
+# GEMFILE
+# => $ bundle install --without production
+
 source 'https://rubygems.org'
 
 ruby '2.2.3'
 
-#gem 'puma'
 gem 'rails',        				'4.2.4'
 gem 'bcrypt',								'3.1.10' 
 gem 'bootstrap-sass', 			'3.3.5.1'
@@ -12,10 +14,11 @@ gem 'coffee-rails', 				'4.1.1'
 gem 'jquery-rails', 				'4.0.5'
 gem 'turbolinks',   				'2.5.3'
 gem 'jbuilder',     				'2.3.2'
+gem 'devise',               '3.5.6'
 gem 'sdoc',         				'0.4.1', group: :doc
 
 # Development Environment
-# => $ bundle install --without production
+
 group :development, :test do
   gem 'sqlite3',     				'1.3.11'
   gem 'byebug',      				'8.0.0'
