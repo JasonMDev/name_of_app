@@ -1,4 +1,6 @@
 class OrdersController < ApplicationController
+
+	before_filter :authenticate_user!
 	
 	def index
 		# Just here for sho untill used.

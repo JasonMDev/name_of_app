@@ -15,7 +15,7 @@
             </div>
             <%= submit_tag("Go", class: "btn btn-primary form-search", id: "btn-search") %>            
           <% end %>
-        </li>  
+        </li>         
         <li>
           <% if user_signed_in? %>
             <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>
