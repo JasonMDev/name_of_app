@@ -1,24 +1,55 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @product.name %>
-</p>
 
-<p>
-  <strong>Description:</strong>
-  <%= @product.description %>
-</p>
 
-<p>
-  <strong>Image url:</strong>
-  <%= @product.image_url %>
-</p>
 
-<p>
-  <strong>Color:</strong>
-  <%= @product.color %>
-</p>
 
-<%= link_to 'Edit', edit_product_path(@product) %> |
-<%= link_to 'Back', products_path %>
+<!-- New code. -->
+<div class="container">
+  <div class="row">
+    
+    <!-- Populate the products on the index page. -->
+    <%= render @product %>
+    
+    <div class="col-xs-12 col-sm-8 col-md-8 col-lg-9">
+
+      <p><strong>Name:</strong><%= @product.name %></p>
+      <p><strong>Description:</strong><%= @product.description %></p>
+      <p><strong>Image url:</strong><%= @product.image_url %></p>
+      <p><strong>Color:</strong><%= @product.color %></p>
+
+      <%= link_to 'Edit', edit_product_path(@product) %> |
+      <%= link_to 'Back', products_path %>
+
+      <hr>
+      <h5>Customer Reviews...</h5>
+      <h6>Review 1</h6>
+      <hr>
+      <p><strong>4.1 </strong> | * * * * *  | 100 Customer Reviews</p>
+      <hr>
+      <article>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam condimentum sed ipsum et fermentum. Aliquam tempus urna odio, id pellentesque augue sagittis vel. Duis at lacus molestie, porttitor libero pulvinar, interdum nibh. Nullam scelerisque, elit sed ornare dignissim, ante nunc vestibulum lacus, at efficitur tellus neque porta quam. Curabitur accumsan lacus magna, ut pulvinar neque finibus dapibus. Donec gravida fringilla dictum. Phasellus nec felis sed urna feugiat eleifend. Nam massa nisi, varius eu enim eget, cursus pharetra purus. Vivamus egestas metus eu ipsum laoreet, volutpat malesuada magna molestie. Fusce fringilla, sapien nec lobortis aliquet, mauris lacus feugiat mauris, at tempus ante libero non orci. </article>
+
+      <h6>Review 1</h6>
+      <hr>
+      <p><strong>4.1 </strong> | * * * * *  | 100 Customer Reviews</p>
+      <hr>
+      <article>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam condimentum sed ipsum et fermentum. Aliquam tempus urna odio, id pellentesque augue sagittis vel. Duis at lacus molestie, porttitor libero pulvinar, interdum nibh. Nullam scelerisque, elit sed ornare dignissim, ante nunc vestibulum lacus, at efficitur tellus neque porta quam. Curabitur accumsan lacus magna, ut pulvinar neque finibus dapibus. Donec gravida fringilla dictum. Phasellus nec felis sed urna feugiat eleifend. Nam massa nisi, varius eu enim eget, cursus pharetra purus. Vivamus egestas metus eu ipsum laoreet, volutpat malesuada magna molestie. Fusce fringilla, sapien nec lobortis aliquet, mauris lacus feugiat mauris, at tempus ante libero non orci. </article>
+
+      <h6>Review 1</h6>
+      <hr>
+      <p><strong>4.1 </strong> | * * * * *  | 100 Customer Reviews</p>
+      <hr>
+      <article>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam condimentum sed ipsum et fermentum. Aliquam tempus urna odio, id pellentesque augue sagittis vel. Duis at lacus molestie, porttitor libero pulvinar, interdum nibh. Nullam scelerisque, elit sed ornare dignissim, ante nunc vestibulum lacus, at efficitur tellus neque porta quam. Curabitur accumsan lacus magna, ut pulvinar neque finibus dapibus. Donec gravida fringilla dictum. Phasellus nec felis sed urna feugiat eleifend. Nam massa nisi, varius eu enim eget, cursus pharetra purus. Vivamus egestas metus eu ipsum laoreet, volutpat malesuada magna molestie. Fusce fringilla, sapien nec lobortis aliquet, mauris lacus feugiat mauris, at tempus ante libero non orci. </article>
+
+      <h6>Review 1</h6>
+      <hr>
+      <p><strong>4.1 </strong> | * * * * *  | 100 Customer Reviews</p>
+      <hr>
+      <article>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam condimentum sed ipsum et fermentum. Aliquam tempus urna odio, id pellentesque augue sagittis vel. Duis at lacus molestie, porttitor libero pulvinar, interdum nibh. Nullam scelerisque, elit sed ornare dignissim, ante nunc vestibulum lacus, at efficitur tellus neque porta quam. Curabitur accumsan lacus magna, ut pulvinar neque finibus dapibus. Donec gravida fringilla dictum. Phasellus nec felis sed urna feugiat eleifend. Nam massa nisi, varius eu enim eget, cursus pharetra purus. Vivamus egestas metus eu ipsum laoreet, volutpat malesuada magna molestie. Fusce fringilla, sapien nec lobortis aliquet, mauris lacus feugiat mauris, at tempus ante libero non orci. </article>
+    
+     
+    </div> <!-- /col -->
+    
+
+  </div><!-- /row -->
+</div><!-- /container-fluid -->

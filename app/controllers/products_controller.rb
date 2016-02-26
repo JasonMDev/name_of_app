@@ -24,7 +24,7 @@ class ProductsController < ApplicationController
   # GET /products/1.json
   def show
     # to get the show to work, just comment below out.
-    redirect_to :back
+    # redirect_to :back
     #redirect_to(request.env['HTTP_REFERER'])
     
   end
