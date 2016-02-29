@@ -10,13 +10,13 @@ h6 {
 
 h4, hr, .thumbnail, p,
 .product-review-overall-rating,
-.product-reviews,
+.product-review,
 .product-details {
   margin: 5px auto;
 }
 
 .product-review-overall-rating,
-.product-reviews {
+.product-review {
   padding: 1em;
   border-radius: 5px; 
 }
@@ -29,5 +29,10 @@ h4, hr, .thumbnail, p,
 
 .product-details {
   height: 100%;
+}
+
+.rating {
+  padding-bottom: 1em;
+  
 }
 
