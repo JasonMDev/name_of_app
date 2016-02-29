@@ -1,52 +1,111 @@
-<p id="notice"><%= notice %></p>
-
-
-
-
-
 <!-- New code. -->
-<div class="container">
+<div class="container-fluid ">
+  <h1>Listing Product</h1>
+  <p id="notice"><%= notice %></p>
+  <p class="text-center">
+    <%= link_to 'Add to basket', edit_product_path(@product), class: "btn btn-primary", role: "button"   %> | 
+    <%= link_to 'Back', products_path, class: "btn btn-primary", role: "button"    %>
+  </p>
+
+  <hr>
+
   <div class="row">
     
     <!-- Populate the products on the index page. -->
     <%= render @product %>
     
-    <div class="col-xs-12 col-sm-8 col-md-8 col-lg-9">
+    <div class="col-xs-12 col-sm-8 col-md-8 col-lg-9 product-details bg-success">
 
+      <h4>Product Details</h4>
       <p><strong>Name:</strong><%= @product.name %></p>
       <p><strong>Description:</strong><%= @product.description %></p>
       <p><strong>Image url:</strong><%= @product.image_url %></p>
       <p><strong>Color:</strong><%= @product.color %></p>
 
-      <%= link_to 'Edit', edit_product_path(@product) %> |
-      <%= link_to 'Back', products_path %>
-
-      <hr>
-      <h5>Customer Reviews...</h5>
-      <h6>Review 1</h6>
-      <hr>
-      <p><strong>4.1 </strong> | * * * * *  | 100 Customer Reviews</p>
-      <hr>
-      <article>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam condimentum sed ipsum et fermentum. Aliquam tempus urna odio, id pellentesque augue sagittis vel. Duis at lacus molestie, porttitor libero pulvinar, interdum nibh. Nullam scelerisque, elit sed ornare dignissim, ante nunc vestibulum lacus, at efficitur tellus neque porta quam. Curabitur accumsan lacus magna, ut pulvinar neque finibus dapibus. Donec gravida fringilla dictum. Phasellus nec felis sed urna feugiat eleifend. Nam massa nisi, varius eu enim eget, cursus pharetra purus. Vivamus egestas metus eu ipsum laoreet, volutpat malesuada magna molestie. Fusce fringilla, sapien nec lobortis aliquet, mauris lacus feugiat mauris, at tempus ante libero non orci. </article>
-
-      <h6>Review 1</h6>
-      <hr>
-      <p><strong>4.1 </strong> | * * * * *  | 100 Customer Reviews</p>
-      <hr>
-      <article>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam condimentum sed ipsum et fermentum. Aliquam tempus urna odio, id pellentesque augue sagittis vel. Duis at lacus molestie, porttitor libero pulvinar, interdum nibh. Nullam scelerisque, elit sed ornare dignissim, ante nunc vestibulum lacus, at efficitur tellus neque porta quam. Curabitur accumsan lacus magna, ut pulvinar neque finibus dapibus. Donec gravida fringilla dictum. Phasellus nec felis sed urna feugiat eleifend. Nam massa nisi, varius eu enim eget, cursus pharetra purus. Vivamus egestas metus eu ipsum laoreet, volutpat malesuada magna molestie. Fusce fringilla, sapien nec lobortis aliquet, mauris lacus feugiat mauris, at tempus ante libero non orci. </article>
-
-      <h6>Review 1</h6>
-      <hr>
-      <p><strong>4.1 </strong> | * * * * *  | 100 Customer Reviews</p>
-      <hr>
-      <article>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam condimentum sed ipsum et fermentum. Aliquam tempus urna odio, id pellentesque augue sagittis vel. Duis at lacus molestie, porttitor libero pulvinar, interdum nibh. Nullam scelerisque, elit sed ornare dignissim, ante nunc vestibulum lacus, at efficitur tellus neque porta quam. Curabitur accumsan lacus magna, ut pulvinar neque finibus dapibus. Donec gravida fringilla dictum. Phasellus nec felis sed urna feugiat eleifend. Nam massa nisi, varius eu enim eget, cursus pharetra purus. Vivamus egestas metus eu ipsum laoreet, volutpat malesuada magna molestie. Fusce fringilla, sapien nec lobortis aliquet, mauris lacus feugiat mauris, at tempus ante libero non orci. </article>
-
-      <h6>Review 1</h6>
-      <hr>
-      <p><strong>4.1 </strong> | * * * * *  | 100 Customer Reviews</p>
-      <hr>
-      <article>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam condimentum sed ipsum et fermentum. Aliquam tempus urna odio, id pellentesque augue sagittis vel. Duis at lacus molestie, porttitor libero pulvinar, interdum nibh. Nullam scelerisque, elit sed ornare dignissim, ante nunc vestibulum lacus, at efficitur tellus neque porta quam. Curabitur accumsan lacus magna, ut pulvinar neque finibus dapibus. Donec gravida fringilla dictum. Phasellus nec felis sed urna feugiat eleifend. Nam massa nisi, varius eu enim eget, cursus pharetra purus. Vivamus egestas metus eu ipsum laoreet, volutpat malesuada magna molestie. Fusce fringilla, sapien nec lobortis aliquet, mauris lacus feugiat mauris, at tempus ante libero non orci. </article>
+    </div> <!-- /col -->
     
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 bg-info">
+
+      <h4>Customer Reviews...</h4>
+      <p class="product-review-overall-rating bg-primary">
+        <strong>4.1 </strong> |
+        <button type="button" class="btn btn-default btn-lg">
+          <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+          <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+          <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+          <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+          <span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span>
+        </button> | 100 Customer Reviews</p>
+      </p>
+      <hr>
+
+      <div class="product-review">       
+        <h6>Review 1</h6>
+        <hr>
+        <p><strong>4.1 </strong> |
+
+          <button type="button" class="btn btn-default btn-lg">
+            <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+            <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+            <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+            <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+            <span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span>
+          </button></p>
+        <hr>
+        <article>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam condimentum sed ipsum et fermentum. Aliquam tempus urna odio, id pellentesque augue sagittis vel. Duis at lacus molestie, porttitor libero pulvinar, interdum nibh. Nullam scelerisque, elit sed ornare dignissim, ante nunc vestibulum lacus, at efficitur tellus neque porta quam. Curabitur accumsan lacus magna, ut pulvinar neque finibus dapibus. Donec gravida fringilla dictum. Phasellus nec felis sed urna feugiat eleifend. Nam massa nisi, varius eu enim eget, cursus pharetra purus. Vivamus egestas metus eu ipsum laoreet, volutpat malesuada magna molestie. Fusce fringilla, sapien nec lobortis aliquet, mauris lacus feugiat mauris, at tempus ante libero non orci. </article>
+        <hr>
+      </div>
+
+      <div class="product-review">       
+        <h6>Review 1</h6>
+        <hr>
+        <p><strong>4.1 </strong> |
+
+          <button type="button" class="btn btn-default btn-lg">
+            <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+            <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+            <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+            <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+            <span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span>
+          </button></p>
+        <hr>
+        <article>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam condimentum sed ipsum et fermentum. Aliquam tempus urna odio, id pellentesque augue sagittis vel. Duis at lacus molestie, porttitor libero pulvinar, interdum nibh. Nullam scelerisque, elit sed ornare dignissim, ante nunc vestibulum lacus, at efficitur tellus neque porta quam. Curabitur accumsan lacus magna, ut pulvinar neque finibus dapibus. Donec gravida fringilla dictum. Phasellus nec felis sed urna feugiat eleifend. Nam massa nisi, varius eu enim eget, cursus pharetra purus. Vivamus egestas metus eu ipsum laoreet, volutpat malesuada magna molestie. Fusce fringilla, sapien nec lobortis aliquet, mauris lacus feugiat mauris, at tempus ante libero non orci. </article>
+        <hr>
+      </div>  
+
+      <div class="bg-info">       
+        <h6>Review 1</h6>
+        <hr>
+        <p><strong>4.1 </strong> |
+
+          <button type="button" class="btn btn-default btn-lg">
+            <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+            <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+            <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+            <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+            <span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span>
+          </button></p>
+        <hr>
+        <article>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam condimentum sed ipsum et fermentum. Aliquam tempus urna odio, id pellentesque augue sagittis vel. Duis at lacus molestie, porttitor libero pulvinar, interdum nibh. Nullam scelerisque, elit sed ornare dignissim, ante nunc vestibulum lacus, at efficitur tellus neque porta quam. Curabitur accumsan lacus magna, ut pulvinar neque finibus dapibus. Donec gravida fringilla dictum. Phasellus nec felis sed urna feugiat eleifend. Nam massa nisi, varius eu enim eget, cursus pharetra purus. Vivamus egestas metus eu ipsum laoreet, volutpat malesuada magna molestie. Fusce fringilla, sapien nec lobortis aliquet, mauris lacus feugiat mauris, at tempus ante libero non orci. </article>
+        <hr>
+      </div>  
+
+      <div class="product-review">       
+        <h6>Review 1</h6>
+        <hr>
+        <p><strong>4.1 </strong> |
+
+          <button type="button" class="btn btn-default btn-lg">
+            <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+            <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+            <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+            <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+            <span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span>
+          </button></p>
+        <hr>
+        <article>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam condimentum sed ipsum et fermentum. Aliquam tempus urna odio, id pellentesque augue sagittis vel. Duis at lacus molestie, porttitor libero pulvinar, interdum nibh. Nullam scelerisque, elit sed ornare dignissim, ante nunc vestibulum lacus, at efficitur tellus neque porta quam. Curabitur accumsan lacus magna, ut pulvinar neque finibus dapibus. Donec gravida fringilla dictum. Phasellus nec felis sed urna feugiat eleifend. Nam massa nisi, varius eu enim eget, cursus pharetra purus. Vivamus egestas metus eu ipsum laoreet, volutpat malesuada magna molestie. Fusce fringilla, sapien nec lobortis aliquet, mauris lacus feugiat mauris, at tempus ante libero non orci. </article>
+        <hr>
+      </div>    
      
     </div> <!-- /col -->
     

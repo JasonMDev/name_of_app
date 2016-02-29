@@ -3,8 +3,22 @@
   height: 100%;
 }
 
-h4, hr, .thumbnail, p {
+h6 {
+  font-size: 1em;
+  font-weight: bold; 
+}
+
+h4, hr, .thumbnail, p,
+.product-review-overall-rating,
+.product-reviews,
+.product-details {
   margin: 5px auto;
+}
+
+.product-review-overall-rating,
+.product-reviews {
+  padding: 1em;
+  border-radius: 5px; 
 }
 
 .admin-buttons {
@@ -12,3 +26,8 @@ h4, hr, .thumbnail, p {
   margin-bottom: 1em;     
 
 }
+
+.product-details {
+  height: 100%;
+}
+
