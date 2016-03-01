@@ -16,6 +16,7 @@ gem 'turbolinks',   				'2.5.3'
 gem 'jbuilder',     				'2.3.2'
 gem 'devise',               '3.5.6'
 gem 'cancancan',          '~> 1.10'
+gem 'will_paginate',     '~> 3.0.6'
 gem 'sdoc',         				'0.4.1', group: :doc
 
 # Development Environment
