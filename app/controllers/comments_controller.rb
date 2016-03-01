@@ -16,11 +16,12 @@ class CommentsController < ApplicationController
     end    
   end
 
-  def destroy
-    @product = Product.find(params[:product_id])
-    @comment = @product.comments.find(params[:id])
+  def destroy    
+
+    @comment = Comment.find(params[:id])
+    product = @comment.product
     @comment.destroy
-    redirect_to product_path(@product)
+    redirect_to product
   end
 
   private
