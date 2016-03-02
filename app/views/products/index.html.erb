@@ -4,15 +4,26 @@
   <p id="notice"><%= notice %></p>
 
   <h1>Listing Products</h1>
-  <!-- Activate by adding "=" after "%" -->
-  <%= link_to 'New Product', new_product_path, class: "btn btn-primary", role: "button"    %>
   <hr>
-  <div class="row">
-    
+  <div class="page_info">    
+    <%= page_entries_info @comments %>
+    &nbsp | &nbsp 
+    <%= will_paginate @products %>
+    &nbsp 
+    <% if signed_in? && current_user.admin? %> 
+      | &nbsp
+      <%= link_to 'New Product', new_product_path, class: "btn btn-primary", role: "button"    %>
+    <% end %>  
+  </div>
+  <hr>  
+
+  <div class="row">    
     <!-- Populate the products on the index page. -->
-    <%= render @products %>
-        
+    <%= render @products %>        
   </div><!-- /row -->
+
+  <%= will_paginate @products %>
+
 </div><!-- /container-fluid -->
 
 <!-- DIFFERENT PARTIALS -->
@@ -35,4 +46,3 @@
 <!-- Partial 4: Refactored Partial -->
 <!-- Objects of collection match partial -->
 <!-- render @products -->
-

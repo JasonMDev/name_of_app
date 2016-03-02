@@ -7,12 +7,13 @@ class ProductsController < ApplicationController
     if params[:q]
       search_term = params[:q]
       # Search for the term in DEVELOPMENT using SQL using "LIKE"
-      @products = Product.where("name LIKE ?", "%#{search_term}%") if Rails.env.development?
+      @products = Product.where("name LIKE ?", "%#{search_term}%").paginate(page: params[:page], per_page: 4) if Rails.env.development?
       # Search for the term in PRODUCTION env. using PostGRES "ilike"
-      @products = Product.where("name ilike ?", "%#{search_term}%") if Rails.env.production?
+      @products = Product.where("name ilike ?", "%#{search_term}%").paginate(page: params[:page], per_page: 4) if Rails.env.production?
+      
     else
       # All products
-      @products = Product.all
+      @products = Product.paginate(page: params[:page], per_page: 4)
       # This action will override the default layout 
       # and call the file products.html.erb  
       # inside app/views/layouts
