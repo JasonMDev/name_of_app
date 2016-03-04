@@ -1,18 +1,36 @@
-<%= form_for(@user) do |f| %>
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
 
-  <!-- Errors -->
-  <%= render 'shared/error_messages' %>
+    <%= form_for(@user) do |f| %>
+
+      <!-- Errors -->
+      <%= render 'shared/error_messages' %>
 
 
-  <div class="field">
-    <%= f.label :first_name %><br>
-    <%= f.text_field :first_name %>
+      <div class="field">
+        <%= f.label :first_name %><br>
+        <%= f.text_field :first_name, class: 'form-control' %>
+      </div>
+
+      <div class="field">
+        <%= f.label :last_name %><br>
+        <%= f.text_field :last_name, class: 'form-control'  %>
+      </div>
+
+      <div class="field">
+        <%= f.label :email %><br />
+        <%= f.email_field :email, autofocus: true, class: 'form-control'  %>
+      </div>
+
+      <div class="field">
+        <%= f.label :password %><br />
+        <%= f.password_field :password, autocomplete: "off", class: 'form-control'  %>
+      </div>
+      
+      <div class="actions">
+        <%= f.submit "Submit", class: "btn btn-primary" %>
+      </div>
+    <% end %>
+
   </div>
-  <div class="field">
-    <%= f.label :last_name %><br>
-    <%= f.text_field :last_name %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
+</div>

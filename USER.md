@@ -1,7 +1,7 @@
-USER
+###Users for you to try.
 
-jasonmansdev@gmail.com
-Woixufgekfi5
 
-js@example.com
-Woixufgekfi5
+| Name          | Email                  | Password     | Admin  |
+| ------------- |:-------------:         |:-----:       |:-----:|
+| Jason Mans    | jasonmansdev@gmail.com | Woixufgekfi5 | Yes |
+| Joe Smoe      | js@example.com         | Woixufgekfi5 | No |
