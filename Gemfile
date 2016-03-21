@@ -25,6 +25,7 @@ group :development, :test do
   gem 'byebug',      				'8.0.0'
   gem 'web-console', 				'2.2.1'
   gem 'spring',      				'1.4.0'
+  gem 'rspec-rails',        '~> 3.0'
 end
 
 # Test Environment
