@@ -26,6 +26,7 @@ group :development, :test do
   gem 'web-console', 				'2.2.1'
   gem 'spring',      				'1.4.0'
   gem 'rspec-rails',        '~> 3.0'
+  gem "factory_girl_rails", '~> 4.0'
 end
 
 # Test Environment
