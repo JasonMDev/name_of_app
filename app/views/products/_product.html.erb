@@ -17,9 +17,16 @@
         <p><%= product.description %></p>
         <p><strong>Color:</strong> &nbsp <%= product.color %></p>
         <p><strong>Location:</strong> &nbsp <%= product.location %></p>  
-        <p><strong>Price:</strong> &nbsp £ 100.00</p>
+        <p>
+          <strong>Price:</strong> 
+          &nbsp
+          <%= number_to_currency(product.price, unit: "£", separator: ".", delimiter: "") %>
+        </p>
         <hr>
         <%= link_to 'View Product', product, class: "btn btn-primary center-block" %>
+        
+         
+        
        
       </div>
     </div>        

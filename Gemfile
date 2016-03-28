@@ -5,19 +5,20 @@ source 'https://rubygems.org'
 
 ruby '2.2.3'
 
-gem 'rails',        				'4.2.4'
-gem 'bcrypt',								'3.1.10' 
-gem 'bootstrap-sass', 			'3.3.5.1'
-gem 'sass-rails',   				'5.0.4'
-gem 'uglifier',     				'2.7.2'
-gem 'coffee-rails', 				'4.1.1'
-gem 'jquery-rails', 				'4.0.5'
-gem 'turbolinks',   				'2.5.3'
-gem 'jbuilder',     				'2.3.2'
+gem 'rails',                '4.2.4'
+gem 'bcrypt',               '3.1.10' 
+gem 'bootstrap-sass',       '3.3.5.1'
+gem 'sass-rails',           '5.0.4'
+gem 'uglifier',             '2.7.2'
+gem 'coffee-rails',         '4.1.1'
+gem 'jquery-rails',         '4.0.5'
+gem 'turbolinks',           '2.5.3'
+gem 'jbuilder',             '2.3.2'
 gem 'devise',               '3.5.6'
 gem 'cancancan',          '~> 1.10'
 gem 'will_paginate',     '~> 3.0.6'
-gem 'sdoc',         				'0.4.1', group: :doc
+gem 'stripe',             '~> 1.37'
+gem 'sdoc',                 '0.4.1', group: :doc
 
 # Development Environment
 group :development, :test do
