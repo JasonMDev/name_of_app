@@ -12,6 +12,7 @@
 
   <div class="row">    
     <!-- Populate the products on the index page. -->
+    <!-- Don't use partial here or at least use own one, but it is redundant.-->
     <%= render @product %>
        
     
@@ -26,6 +27,7 @@
         <!-- Stripe payment button -->
         <%= form_tag "/payments/create" do %>
           <%= render partial: "shared/stripe_checkout_button" %>
+          <%= hidden_field_tag(:product_id, @product.id) %> 
         <% end %>
       </p>
     </div> <!-- /col -->    
