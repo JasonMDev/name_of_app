@@ -1,6 +1,7 @@
 $(document).on('ready page:load', function(){
-  
-  //Raty ratings plugin.
+
+  // Update raty score
+  // Raty ratings plugin.
   // See jquery.raty.js file.
   $('.rating').raty({
     path: ' /assets', 
@@ -13,7 +14,7 @@ $(document).on('ready page:load', function(){
     score: function() {
       return $(this).attr('data-score');
       }
-    });
+    });  
 
   // Image Zoom Effect for the product pictures using elevate zoom.
   // See jquery.elevateZoom-3.0.8.min.js file.
