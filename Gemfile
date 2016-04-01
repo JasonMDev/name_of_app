@@ -19,6 +19,7 @@ gem 'cancancan',          '~> 1.10'
 gem 'will_paginate',     '~> 3.0.6'
 gem 'stripe',             '~> 1.37'
 gem 'sdoc',                 '0.4.1', group: :doc
+gem 'brakeman', :require => false
 
 # Development Environment
 group :development, :test do

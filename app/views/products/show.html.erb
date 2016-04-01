@@ -1,3 +1,6 @@
+<!-- Shows in terminal -->
+<% logger.debug "Product: #{@product.name}"%>
+
 <!-- New code. -->
 <div class="container-fluid ">
   <h1>Listing Product</h1>
@@ -9,6 +12,8 @@
   </p>
 
   <hr>
+  <!-- Shows in terminal -->
+  <% logger.debug "Product: #{@product.name}"%>
 
   <div class="row">    
     <!-- Populate the products on the index page. -->
@@ -39,3 +44,4 @@
 <div class="container-fluid">
   <%= render 'new_comment' %>
 </div><!-- /container-fluid -->  
+
