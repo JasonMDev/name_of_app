@@ -1,4 +1,7 @@
 $(document).on('ready page:load', function(){
+  
+  //Raty ratings plugin.
+  // See jquery.raty.js file.
   $('.rating').raty({
     path: ' /assets', 
     scoreName: 'comment[rating]' 
@@ -11,6 +14,21 @@ $(document).on('ready page:load', function(){
       return $(this).attr('data-score');
       }
     });
+
+  // Image Zoom Effect for the product pictures using elevate zoom.
+  // See jquery.elevateZoom-3.0.8.min.js file.
+  $('.img-zoom').elevateZoom({
+    // Inner Zoom
+    zoomType : "inner", 
+    cursor: "crosshair" 
+
+    // Lens Zoom
+    //zoomType  : "lens", 
+    //lensShape : "round", 
+    //lensSize : 200
+
+  });
+
 });
 
 //When the document is ready the following actions will take place.
@@ -29,3 +47,4 @@ $(document).ready(function() {
     });
   
 });
+

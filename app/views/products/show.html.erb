@@ -1,33 +1,76 @@
 <!-- Shows in terminal -->
 <% logger.debug "Product: #{@product.name}"%>
 
-<!-- New code. -->
+<!-- Header -->
 <div class="container-fluid ">
-  <h1>Listing Product</h1>
-  <!-- <p id="notice"><%= notice %></p> -->
+  <h1>Product Details</h1>
   <p class="text-center center">
     <%= link_to 'Add to basket', edit_product_path(@product), class: "btn btn-primary", role: "button"   %> | 
     <%= link_to 'Back', products_path, class: "btn btn-primary", role: "button"    %>
-
   </p>
-
   <hr>
-  <!-- Shows in terminal -->
-  <% logger.debug "Product: #{@product.name}"%>
+  <!-- Admin Buttons -->
+  <div class="admin-buttons">      
+    <% if signed_in? && current_user.admin? %>
+      <hr>        
+      <%= link_to ('<span class="glyphicon glyphicon-pencil"></span>').html_safe, edit_product_path(@product), class: "btn btn-warning center block" %>
+      &nbsp | &nbsp
+      <%= link_to ('<span class="glyphicon glyphicon-remove"></span>').html_safe, @product, class: "btn btn-danger center block", method: :delete, data: { confirm: 'Are you sure?' }%>
+      <hr>
+    <% end %>      
+  </div>  <!-- /admin-buttons -->  
 
-  <div class="row">    
-    <!-- Populate the products on the index page. -->
+  <!-- Product Detail View -->
+  <div class="row">
+  
+
     <!-- Don't use partial here or at least use own one, but it is redundant.-->
-    <%= render @product %>
+    <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+
+      
+
+      <div class="thumbnail">
+        <!-- Product Image -->
+        <%= image_tag(@product.image_url, width: "350", class: "img-responsive img-zoom", data_zoom_image: @product.image_url) %>
+        <div class="caption">
+          
+         
+        </div>
+      </div>        
+    
+      
+    </div> <!-- /col -->
+
+    <!-- Don't use partial here or at least use own one, but it is redundant.-->
        
     
-    <div class="col-xs-12 col-sm-8 col-md-8 col-lg-9 product-details bg-success">
-      <h4>Product Details</h4>
-      <p><strong>Name:</strong><%= @product.name %></p>
-      <p><strong>Description:</strong><%= @product.description %></p>
-      <p><strong>Image url:</strong><%= @product.image_url %></p>
-      <p><strong>Color:</strong><%= @product.color %></p>
-      <p><strong>Location:</strong><%= @product.location %></p>
+    <div class="col-xs-12 col-sm-8 col-md-8 col-lg-8 product-details bg-success">
+      <!-- Product Name -->
+      <h4><%= @product.name %></h4>
+
+      <!-- Average Rating View -->
+      <hr>
+      <p>        
+        <div class="rated" data-score="<%= @product.average_rating %>">
+          <strong>Average Rating:</strong> 
+          ( &nbsp 
+          <%= pluralize(@product.total_rating.to_f, "customer review") %> 
+          &nbsp )
+        </div>
+         
+      </p>
+      <hr>
+
+      
+      <p><strong>Name: &nbsp</strong><%= @product.name %></p>
+      <p><strong>Description: &nbsp</strong><%= @product.description %></p>
+      <p><strong>Color: &nbsp</strong><%= @product.color %></p>
+      <p><strong>Location: &nbsp</strong><%= @product.location %></p>
+      <p>
+          <strong>Price:</strong> 
+          &nbsp
+          <%= number_to_currency(@product.price, unit: "£", separator: ".", delimiter: "") %>
+        </p>
       <p>
         <!-- Stripe payment button -->
         <%= form_tag "/payments/create" do %>
