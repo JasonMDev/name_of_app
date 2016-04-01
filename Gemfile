@@ -20,6 +20,7 @@ gem 'will_paginate',     '~> 3.0.6'
 gem 'stripe',             '~> 1.37'
 gem 'sdoc',                 '0.4.1', group: :doc
 gem 'brakeman', :require => false
+gem 'angularjs-rails',     '~> 1.5'
 
 # Development Environment
 group :development, :test do

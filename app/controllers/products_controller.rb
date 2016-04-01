@@ -1,5 +1,6 @@
 class ProductsController < ApplicationController
   before_action :set_product, only: [:show, :edit, :update, :destroy]
+  respond_to :json, :html
 
   # GET /products
   # GET /products.json
@@ -18,7 +19,8 @@ class ProductsController < ApplicationController
       # and call the file products.html.erb  
       # inside app/views/layouts
       # render layout: "products"
-    end      
+    end 
+    respond_with @products     
   end
 
   # GET /products/1
