@@ -19,7 +19,9 @@
 
   <div class="row">    
     <!-- Populate the products on the index page. -->
-    <%= render @products %>        
+    <% cache (cache_key_for_products) do %>
+      <%= render @products %>        
+    <% end %>  
   </div><!-- /row -->
 
   <%= will_paginate @products %>

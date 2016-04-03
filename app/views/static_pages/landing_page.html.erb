@@ -1,9 +1,21 @@
+
 <!-- Landing Header -->
 <%= render partial: 'landing_heading' %>
-<hr>
-<!-- Landing Carousel -->
-<%= render partial: 'landing_carousel' %>
-<hr>
+
+<!-- Add default fragment cache block -->
+<!-- Original load time: 2220ms -->
+<!-- First Fragment Write time: 2245ms -->
+<!-- After initial fragment cache read load: 185ms -->
+
+<% cache do %>
+  <!-- Make the app sleep. -->
+  <% sleep 2 %>
+  <hr>
+  <!-- Landing Carousel -->
+  <%= render partial: 'landing_carousel' %>
+  <hr>
+<% end %>
+
 <!-- Landing Feature -->
 <%= render partial: 'landing_feature' %>
 <hr>

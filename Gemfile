@@ -47,7 +47,10 @@ end
 group :production do
   gem 'pg',             		'0.18.3'
   gem 'rails_12factor', 		'0.0.3'
-  gem 'puma',								'2.15.2'	
+  gem 'puma',								'2.15.2'
+  gem 'memcachier',      '~> 0.0.2'
+  gem 'dalli', '~> 2.7', '>= 2.7.6'
+  gem 'connection_pool', '~> 2.2'
 end
 
 

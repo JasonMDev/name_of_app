@@ -21,19 +21,17 @@
   </div>  <!-- /admin-buttons -->  
 
   <!-- Product Detail View -->
-  <div class="row">
-  
+  <div class="row">  
+    <% cache @product do %>
 
-    <!-- Don't use partial here or at least use own one, but it is redundant.-->
-    <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-
-      
+    <!-- Product Picture -->
+    <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">      
 
       <div class="thumbnail">
         <!-- Product Image -->
         <%= image_tag(@product.image_url, width: "350", class: "img-responsive img-zoom", data_zoom_image: @product.image_url) %>
-        <div class="caption">
-          
+        
+        <div class="caption">         
          
         </div>
       </div>        
@@ -41,13 +39,11 @@
       
     </div> <!-- /col -->
 
-    <!-- Don't use partial here or at least use own one, but it is redundant.-->
-       
+    <!-- Product Details-->   
     
     <div class="col-xs-12 col-sm-8 col-md-8 col-lg-8 product-details bg-success">
-      <!-- Product Name -->
+      <!-- Product Name -->      
       <h4><%= @product.name %></h4>
-
       <!-- Average Rating View -->
       <hr>
       <p>        
@@ -60,7 +56,6 @@
          
       </p>
       <hr>
-
       
       <p><strong>Name: &nbsp</strong><%= @product.name %></p>
       <p><strong>Description: &nbsp</strong><%= @product.description %></p>
@@ -78,7 +73,9 @@
           <%= hidden_field_tag(:product_id, @product.id) %> 
         <% end %>
       </p>
-    </div> <!-- /col -->    
+
+    </div> <!-- /col --> 
+    <% end %>  <!-- /Cache -->    
   </div><!-- /row -->
 </div><!-- /container-fluid -->
 
