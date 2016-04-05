@@ -27,7 +27,7 @@ class ProductsController < ApplicationController
   # GET /products/1.json
   def show
     # Debuggeing using byebug gem 
-    #byebug
+    # byebug
     @comments = @product.comments.order("created_at DESC").paginate(page: params[:page], per_page: 3)
     # to get the show to work, just comment below out.
     # redirect_to :back
@@ -86,10 +86,9 @@ class ProductsController < ApplicationController
 
   private
     # Use callbacks to share common setup or constraints between actions.
-    # TODO: Where did this come from???? Gives error in terminal.
-    # MAybe todo with product partial that will be removed anyway.
     def set_product
       @product = Product.find(params[:id])
+      # byebug
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

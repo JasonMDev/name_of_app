@@ -1,5 +1,7 @@
-<!-- Shows in terminal -->
-<% logger.debug "Product: #{@product.name}"%>
+<!-- Debug info: shows in terminal -->
+<% logger.debug "Product ID: #{@product.id}"%>
+<% logger.debug "Product Name: #{@product.name}"%>
+<% logger.debug "Page Param ID: #{params[:id]}"%>
 
 <!-- Header -->
 <div class="container-fluid ">
@@ -30,6 +32,7 @@
       <div class="thumbnail">
         <!-- Product Image -->
         <%= image_tag(@product.image_url, width: "350", class: "img-responsive img-zoom", data_zoom_image: @product.image_url) %>
+
         
         <div class="caption">         
          
@@ -67,6 +70,12 @@
           <%= number_to_currency(@product.price, unit: "£", separator: ".", delimiter: "") %>
         </p>
       <p>
+        <!-- Debug info: shows in terminal -->
+        <% logger.debug "Product ID: #{@product.id}"%>
+        <% logger.debug "Product Name: #{@product.name}"%>
+        <% logger.debug "Page Param ID: #{params[:id]}"%>
+        <% logger.debug "Page Param ID: #{@product.image_url}"%>
+
         <!-- Stripe payment button -->
         <%= form_tag "/payments/create" do %>
           <%= render partial: "shared/stripe_checkout_button" %>
