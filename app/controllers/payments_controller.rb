@@ -34,7 +34,7 @@ class PaymentsController < ApplicationController
       # The card has been declined
       body = e.json_body
       err = body[:error]
-      flash[:error] = "Unfortunately, therer was an error processing your payment: #{err[:message]}"
+      flash[:error] = "Unfortunately, there was an error processing your payment: #{err[:message]}"
 
     end
 

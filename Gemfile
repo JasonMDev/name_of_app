@@ -21,6 +21,7 @@ gem 'stripe',             '~> 1.37'
 gem 'sdoc',                 '0.4.1', group: :doc
 gem 'brakeman', :require => false
 gem 'angularjs-rails',     '~> 1.5'
+gem 'redis-rails',         '~> 4.0'
 
 # Development Environment
 group :development, :test do
@@ -51,6 +52,7 @@ group :production do
   gem 'memcachier',      '~> 0.0.2'
   gem 'dalli', '~> 2.7', '>= 2.7.6'
   gem 'connection_pool', '~> 2.2'
+  gem 'redis', '~> 3.2', '>= 3.2.2'
 end
 
 

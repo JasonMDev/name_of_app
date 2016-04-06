@@ -3,12 +3,18 @@ class StaticPagesController < ApplicationController
 	# and it will apply that layout to all of the actions within that controller.
 	# layout "static"
 
+  # Initialise counter
+
+  $redis.set('Page-Visit', '0')
+
 
 	def landing_page
 		# Featured product.
 		@featured_product = Product.last
 		# First 3 products.
 		@products = Product.limit(5)
+    # Count page visits
+    @page_count = $redis.incr('Page-Visit')
 	end  
 
   def index
