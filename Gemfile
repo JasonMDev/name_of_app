@@ -32,10 +32,10 @@ group :development, :test do
   gem 'spring',      				'1.4.0'
   gem 'rspec-rails', '~> 3.4', '>= 3.4.2'
   gem 'factory_girl_rails', '~> 4.6'
-  gem 'guard',             '~> 2.13'
-  gem 'guard-rspec', '~> 4.6', '>= 4.6.5', require: false
-  gem 'spork-rails',        '~> 4.0'
-  gem 'guard-spork',       '~> 2.1'
+  gem 'guard'
+  gem 'guard-rspec', require: false
+  gem 'spork-rails', github: 'sporkrb/spork-rails'
+  gem 'guard-spork'
 end
 
 # Test Environment

@@ -1,7 +1,8 @@
 require 'rspec/core'
+require 'support/factory_girl'
 require 'rubygems'
 require 'spork'
-require 'support/factory_girl'
+
 #uncomment the following line to use spork with the debugger
 #require 'spork/ext/ruby-debug'
 
