@@ -31,7 +31,7 @@ group :development, :test do
   gem 'web-console', 				'2.2.1'
   gem 'spring',      				'1.4.0'
   gem 'rspec-rails', '~> 3.4', '>= 3.4.2'
-  gem 'factory_girl_rails', '~> 4.6'
+  gem 'factory_girl_rails', '~> 4.7'
   gem 'guard'
   gem 'guard-rspec', require: false
   gem 'spork-rails', github: 'sporkrb/spork-rails'
