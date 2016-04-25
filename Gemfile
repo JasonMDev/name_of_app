@@ -22,6 +22,7 @@ gem 'sdoc',                 '0.4.1', group: :doc
 gem 'brakeman', :require => false
 gem 'angularjs-rails',     '~> 1.5'
 gem 'redis-rails',         '~> 4.0'
+gem 'newrelic_rpm'
 
 # Development Environment
 group :development, :test do

@@ -1,3 +1,4 @@
+require 'support/factory_girl'
 require 'rspec/core'
 require 'rubygems'
 require 'spork'

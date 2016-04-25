@@ -22,4 +22,4 @@ end
 # minitest-rails
 class ActiveSupport::TestCase
   include FactoryGirl::Syntax::Methods
-en
+end
