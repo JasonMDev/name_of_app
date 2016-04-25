@@ -4,9 +4,7 @@ class StaticPagesController < ApplicationController
 	# layout "static"
 
   # Initialise counter
-
   $redis.set('Page-Visit', '0')
-
 
 	def landing_page
 		# Featured product.
