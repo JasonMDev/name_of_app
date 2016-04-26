@@ -12,10 +12,10 @@ Spork.prefork do
   # need to restart spork for it take effect.
 
   #Added from https://gist.github.com/JanDintel/6077548
-  ENV["RAILS_ENV"] ||= 'test'
-  require File.expand_path("../../config/environment", __FILE__)
-  require 'rspec/rails'
-  require 'rspec/autorun'
+  #ENV["RAILS_ENV"] ||= 'test'
+  #require File.expand_path("../../config/environment", __FILE__)
+  #require 'rspec/rails'
+  #require 'rspec/autorun'
 
 end
 
