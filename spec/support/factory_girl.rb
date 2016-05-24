@@ -3,5 +3,8 @@
 RSpec.configure do |config|
   config.include FactoryGirl::Syntax::Methods
   # i added this.
-  #FactoryGirl.find_definitions
+  # Creates duplicate error
+  # FactoryGirl.find_definitions
 end
+
+# Removed code from the below.

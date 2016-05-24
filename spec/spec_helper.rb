@@ -1,5 +1,6 @@
 require 'rspec/core'
-require 'support/factory_girl'
+# Works without
+#require 'support/factory_girl'
 require 'rubygems'
 require 'spork'
 
@@ -12,9 +13,10 @@ Spork.prefork do
   # need to restart spork for it take effect.
 
   #Added from https://gist.github.com/JanDintel/6077548
-  #ENV["RAILS_ENV"] ||= 'test'
-  #require File.expand_path("../../config/environment", __FILE__)
-  #require 'rspec/rails'
+  # Below works for the minitest.
+  ENV["RAILS_ENV"] ||= 'test'
+  require File.expand_path("../../config/environment", __FILE__)
+  require 'rspec/rails'
   #require 'rspec/autorun'
 
 end
