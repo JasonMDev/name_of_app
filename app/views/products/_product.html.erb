@@ -1,20 +1,28 @@
-<% cache product do %>
-  <div class="col-xs-12 col-sm-4 col-md-4 col-lg-3">
-      <div class="thumbnail">
-        <%= link_to image_tag(product.image_url, class: "img-responsive"), product, class: "thumbnail" %>
-        <div class="caption">
-          <h4><%= product.name %></h4>
-          <hr>
-          <p>
-            <strong>Average Rating:</strong>
-            <div class="rated" data-score="<%= product.average_rating %>">
-            </div>
-            <br>
-            ( &nbsp 
-            <%= pluralize(product.total_rating.to_f, "customer review") %> 
-            &nbsp ) 
-          </p>
-          <hr>
+<!-- Partial page for products  -->
+<!-- Use cache for fater load time -->
+<!-- ISSUE: Cache is messing around with the admin buttons. -->
+<!-- >% cache product do %> -->
+  <!-- Use bootstrap gridview -->
+  <div class="product-item col-xs-12 col-sm-4 col-md-4 col-lg-3">
+    <!-- Creates a thumbnail image of the product -->
+    <div class="thumbnail">
+      <%= link_to image_tag(product.image_url, class: "img-responsive"), product, class: "thumbnail" %>
+      <div class="caption">
+        <h4><%= product.name %></h4>
+        <hr>
+        <!-- Visual Average Rating and information -->        
+        <p>
+          <strong>Average Rating:</strong>
+          <div class="rated" data-score="<%= product.average_rating %>">
+          </div>
+          <br>
+          ( &nbsp 
+          <%= pluralize(product.total_rating.to_f, "customer review") %> 
+          &nbsp ) 
+        </p>
+        <hr>
+        <!-- Product Description -->
+        <div class="product-description">
           <p><%= product.description %></p>
           <p><strong>Color:</strong> &nbsp <%= product.color %></p>
           <p><strong>Location:</strong> &nbsp <%= product.location %></p>  
@@ -23,28 +31,29 @@
             &nbsp
             <%= number_to_currency(product.price, unit: "£", separator: ".", delimiter: "") %>
           </p>
-          <hr>
-          <%= link_to 'View Product', product, class: "btn btn-primary center-block" %>       
-           
-          
-         
-        </div>
-      </div>        
+        </div> <!-- /product-description -->
+        <hr>
+        <%= link_to 'View Product', product, class: "btn btn-primary center-block" %>   
+      </div> <!-- /caption -->
+    </div> <!-- /thumbnail -->      
 
-      <div class="admin-buttons">      
-        <% if signed_in? && current_user.admin? %>
-          <hr>        
-          <%= link_to ('<span class="glyphicon glyphicon-pencil"></span>').html_safe, edit_product_path(product), class: "btn btn-warning center block" %>
-          &nbsp | &nbsp
-          <%= link_to ('<span class="glyphicon glyphicon-remove"></span>').html_safe, product, class: "btn btn-danger center block", method: :delete, data: { confirm: 'Are you sure?' }%>
-          <hr>
-        <% end %>      
-      </div>  
+    <!-- Admin buttons for edit products -->
+    <div class="admin-buttons">      
+      <% if signed_in? && current_user.admin? %>
+        <hr>
+        <!-- Edit button for products -->        
+        <%= link_to ('<span class="glyphicon glyphicon-pencil"></span>').html_safe, edit_product_path(product), class: "btn btn-warning center block" %>
+        &nbsp | &nbsp
+        <!-- Delete button for products -->
+        <%= link_to ('<span class="glyphicon glyphicon-remove"></span>').html_safe, product, class: "btn btn-danger center block", method: :delete, data: { confirm: 'Are you sure?' }%>
+        <hr>
+      <% end %>      
+    </div> <!-- /admin-buttons -->  
   </div> <!-- /col -->
 
-  <!-- Original [Not shown] -->
+  <!-- Originals kept for reference [Not shown] -->
   <% link_to 'Show', product, class: "btn btn-primary center-block" %>
   <% link_to 'Edit', edit_product_path(product) %>
   <% link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' }%> 
 
-<% end %>
+<!-- >% end %>  /cache -->
