@@ -1,4 +1,5 @@
-$(document).on('ready page:load', function(){
+$(document).on('turbolinks:load', function() {
+  // JavaScript in here will be loaded when the page is ready
 
   // Update raty score
   // Raty ratings plugin.
