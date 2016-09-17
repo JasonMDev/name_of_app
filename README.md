@@ -23,5 +23,3 @@ See [LICENSE.md](LICENSE.md) for details.
 
 ### Behavior Driven Development
 
-
-
