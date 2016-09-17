@@ -4,6 +4,7 @@ describe Product do
 
   context "when the product has comments" do
     before do
+      #here you put your code to generate test content
       @product = Product.create!(name: "race bike")
       @user = User.create!(first_name: "John", last_name: "Smith", email: "js@example.com", password: "password")
       @product.comments.create!(rating: 1, user: @user, body: "Awful bike!")
@@ -11,11 +12,11 @@ describe Product do
       @product.comments.create!(rating: 5, user: @user, body: "Awesome bike!")
       end
 
-      it "returns average rating of all comments" do
+      it "expects the product's average rating of all comments to be 3" do
         expect(@product.average_rating).to eq 3
       end
 
-      it "returns how many comments a product has received" do
+      it "expects to receive 3 comments on the product" do
         expect(@product.total_rating).to eq 3
       end
   end

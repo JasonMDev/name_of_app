@@ -23,3 +23,7 @@ FactoryGirl.define do
   end
 
 end
+
+# TODO
+# https://github.com/plataformatec/devise/wiki/How-To:-Test-controllers-with-Rails-3-and-4-(and-RSpec)#controller-specs
+# See how you can connect devise and factory girl to create users for normal or admin.

@@ -328,7 +328,7 @@ DEPENDENCIES
   rails_12factor
   redis
   redis-rails
-  rspec-rails (~> 3.4, >= 3.4.2)
+  rspec-rails (~> 3.5)
   sass-rails (= 5.0.6)
   sdoc (= 0.4.1)
   spring (= 1.7.2)

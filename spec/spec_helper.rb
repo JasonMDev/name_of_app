@@ -14,9 +14,10 @@ Spork.prefork do
 
   #Added from https://gist.github.com/JanDintel/6077548
   # Below works for the minitest.
-  ENV["RAILS_ENV"] ||= 'test'
-  require File.expand_path("../../config/environment", __FILE__)
-  require 'rspec/rails'
+  # Removed until Spork is supported.
+  #ENV["RAILS_ENV"] ||= 'test'
+  #require File.expand_path("../../config/environment", __FILE__)
+  #require 'rspec/rails'
   #require 'rspec/autorun'
 
 end

@@ -1,6 +1,9 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
-  before_filter :authenticate_user!, :except => [:show, :index]
+  # before_filter to be deprecated in Rails 5.1.
+  # Advised to use before_action.
+  #before_filter :authenticate_user!, :except => [:show, :index]
+  before_action :authenticate_user!, :except => [:show, :index]
   load_and_authorize_resource
 
   # GET /users

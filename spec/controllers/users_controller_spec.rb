@@ -15,13 +15,16 @@ describe UsersController, :type => :controller do
       end
 
       it "loads correct user details of User 1" do
-        get :show, id: @user1.id
+        # original
+        #get :show, id: @user1.id
+        # Change due to deprecation warning in Rails 5.
+        get :show, params: { id: @user1.id }
         expect(response.status).to eq 200
         expect(assigns(:user)).to eq @user1
       end
 
       it "doesn't loads user details of User 2" do
-        get :show, id: @user2.id
+        get :show, params: { id: @user2.id }
         expect(response.status).to eq 302
         expect(response).to redirect_to(root_path)
       end
@@ -30,7 +33,7 @@ describe UsersController, :type => :controller do
 
     context "No user is logged in" do
       it "redirects to login" do
-        get :show, id: @user1.id
+        get :show, params: { id: @user1.id }
         expect(response).to redirect_to(root_path)
       end
     end
