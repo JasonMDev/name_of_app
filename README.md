@@ -22,5 +22,3 @@ See [LICENSE.md](LICENSE.md) for details.
 #### COmment Model
 
 ### Behavior Driven Development
-
-Test
