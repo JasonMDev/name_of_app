@@ -60,7 +60,7 @@ end
 # Production Environment
 group :production do
   gem 'pg',             		      '0.18.4'
-  gem 'rails_12factor'
+  # gem 'rails_12factor'
   gem 'memcachier',            '~> 0.0.2'
   gem 'dalli', '~> 2.7',       '>= 2.7.6'
   gem 'connection_pool',       '~> 2.2'
