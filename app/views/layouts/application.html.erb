@@ -9,19 +9,17 @@
 
     <!-- Body -->
     <div class="container">
-
       <!-- Devise "notices" and "alerts" -->
-      <%= render 'layouts/notices_and_alerts' %>      
-      
+      <%= render 'layouts/notices_and_alerts' %>            
       <!-- Normal Body -->        
       <%= yield %>
+    </div><!-- container -->
 
-      <!-- Footer -->
-      <%= render 'layouts/footer' %>
+    <!-- Footer -->
+    <%= render 'layouts/footer' %>
 
-      <!-- Debug information to the site layout. -->
-      <%= debug(params) if Rails.env.development? %>
-      
-    </div>   
+    <!-- Debug information to the site layout. -->
+    <%= debug(params) if Rails.env.development? %>
+
   </body>
 </html>
