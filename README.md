@@ -23,7 +23,7 @@ See [LICENSE](LICENSE) for details.
 ## Example Users
 
 *   See example users [USERS](USER.md) to navigate around the site.
-*   ALternatively sign-up with your own credentials.
+*   Alternatively sign-up with your own credentials.
 *   There is an example of a ADMIN user and a NORMAL user. See the difference.
 
 ## Web Development Feautures
