@@ -10,15 +10,29 @@ For more information, see the [*CareerFoundry*](https://careerfoundry.com).
 
 ## License
 
-See [LICENSE.md](LICENSE.md) for details.
+See [LICENSE](LICENSE) for details.
 
-## Feautures
+## Site Features
+*   Landing page 
+*   Multiple products page
+*   Individual products page
+*   Orders page
+*   Sign-up/Log-in page
+*   User profile page
+
+## Example Users
+
+*   See example users [USERS](USER.md) to navigate around the site.
+*   ALternatively sign-up with your own credentials.
+*   There is an example of a ADMIN user and a NORMAL user. See the difference.
+
+## Web Development Feautures
 
 ### M-V-C Framwork
 
 ### Models
-#### User Model
-#### Product Model
-#### COmment Model
+*   User Model
+*   Product Model
+*   Comment Model
 
 ### Behavior Driven Development
