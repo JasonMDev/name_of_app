@@ -7,13 +7,18 @@
     <!-- Navigation Header -->
     <%= render 'layouts/navigation' %>
 
-    <!-- Body -->
-    <div class="container">
-      <!-- Devise "notices" and "alerts" -->
-      <%= render 'layouts/notices_and_alerts' %>            
-      <!-- Normal Body -->        
-      <%= yield %>
-    </div><!-- container -->
+    <!-- Main Body -->
+    <main role="main">
+      <div class="container">
+
+        <!-- Devise "notices" and "alerts" -->
+        <%= render 'layouts/notices_and_alerts' %>
+
+        <!-- Normal Body -->        
+        <%= yield %>
+
+      </div><!-- container -->
+    </main>
 
     <!-- Footer -->
     <%= render 'layouts/footer' %>

@@ -65,10 +65,10 @@
       <p><strong>Color: &nbsp</strong><%= @product.color %></p>
       <p><strong>Location: &nbsp</strong><%= @product.location %></p>
       <p>
-          <strong>Price:</strong> 
-          &nbsp
-          <%= number_to_currency(@product.price, unit: "£", separator: ".", delimiter: "") %>
-        </p>
+        <strong>Price:</strong> 
+        &nbsp
+        <%= number_to_currency(@product.price, unit: "£", separator: ".", delimiter: "") %>
+      </p>
       <p>
         <!-- Debug info: shows in terminal -->
         <% logger.debug "Product ID: #{@product.id}"%>
@@ -86,7 +86,7 @@
     </div> <!-- /col --> 
     <% end %>  <!-- /Cache -->    
   </div><!-- /row -->
-</div><!-- /container-fluid -->
+
 
 <%= render 'comments' %>
 
