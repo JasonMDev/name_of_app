@@ -1,11 +1,9 @@
-<ul class="navbar-form navbar-right">
-  <li>
-    <%= form_tag("/products", method: "get", role: "search" ) do %>
-      <div class="form-group">
-        <%= label_tag(:q, "Search for:", id: "label-search", class: "form-search") %>
-        <%= text_field_tag :q, nil, class: "form-control form-search", placeholder: "Item" %>
-      </div>
-      <%= submit_tag("Go", class: "btn btn-primary form-search", id: "btn-search") %>            
-    <% end %>
-  </li>
-</ul>  
+<form class="navbar-form navbar-left">
+  <%= form_tag("/products", method: "get", role: "search" ) do %>
+    <div class="form-group">    
+      <%= label_tag(:q, "Search for:", id: "label-search", class: "form-search") %>
+      <%= text_field_tag :q, nil, class: "form-control form-search", placeholder: "Item" %>
+      <%= submit_tag("Go", class: "btn btn-default form-search", id: "btn-search") %>
+    </div>
+  <% end %>
+</form>
