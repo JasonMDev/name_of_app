@@ -14,7 +14,7 @@ class ProductsController < ApplicationController
       
     else
       # All products
-      @products = Product.paginate(page: params[:page], per_page: 4)
+      @products = Product.paginate(page: params[:page], per_page: 9)
       # This action will override the default layout 
       # and call the file products.html.erb  
       # inside app/views/layouts

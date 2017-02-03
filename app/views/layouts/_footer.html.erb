@@ -1,20 +1,7 @@
-<footer class="footer">
-  <small>
-    &copy; 2015 Bike Basingstoke Rails Demo
-  </small>
-  <nav>
-    <ul>
-      <li><%= link_to "Home", root_path %></li>
-      <li><%= link_to "About", static_pages_about_path %></li>
-      <li><%= link_to "Contact", static_pages_contact_path %></li>
-      <li><%= link_to 'Show Products', products_path %></li>     
-    </ul>
-  </nav>
-</footer>
-
 <footer role="contentinfo">
   <div class="container">
 
+    <!-- Category and About -->
     <div class="row">
       <div class="col-sm-4 col-md-2">
         <h3>Categories</h3>
@@ -26,6 +13,7 @@
             <li><a href="#">Women</a></li>
             <li><a href="#">Kids</a></li>
             <li><a href="#">Pets</a></li>
+            <li><a href="#">Try this</a></li>
           </ul>
       </div>
 
@@ -39,17 +27,20 @@
             <li><a href="#">Other Days</a></li>
             <li><a href="#">Alternative</a></li>
             <li><a href="#">Otherwise</a></li>
+            <li><a href="#">Don't you dare</a></li>
           </ul>
       </div>
 
       <div class="col-sm-4 col-md-2">  
         <h3>Other</h3>
           <ul>
+            <li><%= link_to "Home", root_path %></li>
+            <li><%= link_to "About", static_pages_about_path %></li>
+            <li><%= link_to "Contact", static_pages_contact_path %></li>
+            <li><%= link_to 'Show Products', products_path %></li>   
             <li><a href="#">Link</a></li>
             <li><a href="#">Another link</a></li>
-            <li><a href="#">Link again</a></li>
-            <li><a href="#">Try this</a></li>
-            <li><a href="#">Don't you dare</a></li>
+            <li><a href="#">Link again</a></li>            
             <li><a href="#">Oh go ahead</a></li>
           </ul>
       </div>
@@ -59,11 +50,12 @@
 
       <div class="about col-sm-12 col-md-6">  
         <h3>About Us</h3>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse euismod congue bibendum. Aliquam erat volutpat. Phasellus eget justo lacus. Vivamus pharetra ullamcorper massa, nec ultricies metus gravida egestas. Duis congue viverra arcu, ac aliquet turpis rutrum a. Donec semper vestibulum dapibus. Integer et sollicitudin metus. Vivamus at nisi turpis. Phasellus vel tellus id felis cursus hendrerit.</p>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse euismod congue bibendum. Aliquam erat volutpat. Phasellus eget justo lacus. Vivamus pharetra ullamcorper massa, nec ultricies metus gravida egestas. Duis congue viverra arcu, ac aliquet turpis rutrum a. Donec semper vestibulum dapibus. Integer et sollicitudin metus. Vivamus at nisi turpis. Phasellus vel tellus id felis cursus hendrerit.</p>          
           <a class="btn btn-default btn-xs pull-right" href="#">Learn more <span class="fa fa-arrow-circle-right"></span></a>
       </div>  
     </div><!-- /.row -->
 
+    <!-- Social Icons -->
     <ul class="social">
       <li><a href="#" title="Twitter Profile"><span class="icon fa fa-twitter"></span></a></li>
       <li><a href="#" title="Facebook Page"><span class="icon fa fa-facebook"></span></a></li>
@@ -72,7 +64,14 @@
       <li><a href="#" title="GitHub Profile"><span class="icon fa fa-github-alt"></span></a></li>
     </ul>
 
+    <!-- Brand Image -->
     <p class="footer-brand"><a href="index.html"><img src="img/logo.png" width="80" alt="Bootstrappin'"></a></p>
+
+    <%= image_tag("bike_blue.jpg", width: "50", height: "50", class: "img-responsive") %>
+    <%= link_to ('<span class="glyphicon glyphicon-remove"></span>').html_safe, new_product_path, class: "btn btn-danger btn-xs" %>
+
+    <!-- Copyright -->
+    <p><small>&copy; 2017 Bike Basingstoke Rails Demo</small></p>
 
   </div><!-- /.container -->
 </footer>

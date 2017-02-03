@@ -6,15 +6,24 @@
 <div class="product-item col-xs-6 col-md-4">
 
   <!-- Product Image       -->
-  <%= link_to image_tag(product.image_url, width: "300", height: "200", class: "img-responsive"), product%>
+  <%= link_to image_tag(product.image_url, class: "img-responsive"), product%>
 
   <!-- Product Title        -->
   <h2><a href="#"><%= product.name %></a></h2>
   <hr>
 
   <!-- Product Rating      -->
-  
-  <hr>
+  <!-- Visual Average Rating and information -->        
+  <p>
+    <strong>Average Rating:</strong>
+    <div class="rated" data-score="<%= product.average_rating %>">
+    </div>
+    <br>
+    ( &nbsp 
+    <%= pluralize(product.total_rating.to_f, "customer review") %> 
+    &nbsp )
+    <hr> 
+  </p>
 
   <!-- Product Description -->
   <p><%= product.description %> This text describes the above product a little not too much but just enough or maybe a little more</p>
@@ -23,7 +32,6 @@
   <p><strong>Color:</strong> &nbsp <%= product.color %></p>
 
   <!-- Product Location    -->
-
   <p><strong>Location:</strong> &nbsp <%= product.location %></p>
 
   <!-- Product Price       -->  
@@ -31,79 +39,30 @@
     <strong>Price:</strong> 
     &nbsp
     <%= number_to_currency(product.price, unit: "£", separator: ".", delimiter: "") %>
+    <hr>
   </p>
 
-  <hr>
+  <!-- Product Edit Prod.  -->
+  <!-- Admin buttons for edit products -->
+  <p class="admin-buttons center">      
+    <% if signed_in? && current_user.admin? %>
+      <!-- Edit button for products -->        
+      <%= link_to ('<span class="glyphicon glyphicon-pencil"></span>').html_safe, edit_product_path(product), class: "btn btn-warning btn-xs" %>
+      &nbsp | &nbsp
+      <!-- Delete button for products -->
+      <%= link_to ('<span class="glyphicon glyphicon-remove"></span>').html_safe, product, class: "btn btn-danger btn-xs", method: :delete, data: { confirm: 'Are you sure?' }%>
+      <hr>
+    <% end %>      
+  </p> <!-- /admin-buttons -->
 
   <!-- Product View Button -->
-
-  <hr>
   <%= link_to 'View this product <i class="fa fa-arrow-circle-right"></i>'.html_safe, product, class: "btn btn-default btn-xs pull-right" %>
 
-  <!-- Product Edit Prod.  -->
-  <hr>  
+</div><!-- ./product-item  -->
 
-  <hr>
-  
-
-
-  <a class="btn btn-default btn-xs pull-right" href="#">View this product <i class="fa fa-arrow-circle-right"></i></a>
-</div>
-
-<!-- OLD PAGE -->
-
-  <!-- Use bootstrap gridview -->
-  <div class="product-item--index col-xs-12 col-sm-4 col-md-4 col-lg-3">
-    <!-- Creates a thumbnail image of the product -->
-    <div class="thumbnail">
-      <%= link_to image_tag(product.image_url, class: "img-responsive"), product, class: "thumbnail" %>
-      <div class="caption">
-        <h4><%= product.name %></h4>
-        <hr>
-        <!-- Visual Average Rating and information -->        
-        <p>
-          <strong>Average Rating:</strong>
-          <div class="rated" data-score="<%= product.average_rating %>">
-          </div>
-          <br>
-          ( &nbsp 
-          <%= pluralize(product.total_rating.to_f, "customer review") %> 
-          &nbsp ) 
-        </p>
-        <hr>
-        <!-- Product Description -->
-        <div class="product-description">
-          <p><%= product.description %></p>
-          <p><strong>Color:</strong> &nbsp <%= product.color %></p>
-          <p><strong>Location:</strong> &nbsp <%= product.location %></p>  
-          <p>
-            <strong>Price:</strong> 
-            &nbsp
-            <%= number_to_currency(product.price, unit: "£", separator: ".", delimiter: "") %>
-          </p>
-        </div> <!-- /product-description -->
-        <hr>
-        <%= link_to 'View Product', product, class: "btn btn-primary center-block" %>   
-      </div> <!-- /caption -->
-    </div> <!-- /thumbnail -->      
-
-    <!-- Admin buttons for edit products -->
-    <div class="admin-buttons">      
-      <% if signed_in? && current_user.admin? %>
-        <hr>
-        <!-- Edit button for products -->        
-        <%= link_to ('<span class="glyphicon glyphicon-pencil"></span>').html_safe, edit_product_path(product), class: "btn btn-warning center block" %>
-        &nbsp | &nbsp
-        <!-- Delete button for products -->
-        <%= link_to ('<span class="glyphicon glyphicon-remove"></span>').html_safe, product, class: "btn btn-danger center block", method: :delete, data: { confirm: 'Are you sure?' }%>
-        <hr>
-      <% end %>      
-    </div> <!-- /admin-buttons -->  
-  </div> <!-- /col -->
-
-  <!-- Originals kept for reference [Not shown] -->
-  <% link_to 'Show', product, class: "btn btn-primary center-block" %>
-  <% link_to 'Edit', edit_product_path(product) %>
-  <% link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' }%> 
+<!-- Originals kept for reference [Not shown] -->
+<% link_to 'Show', product, class: "btn btn-primary center-block" %>
+<% link_to 'Edit', edit_product_path(product) %>
+<% link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' }%> 
 
 <!-- >% end %>  /cache -->
