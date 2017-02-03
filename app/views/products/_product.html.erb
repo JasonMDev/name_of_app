@@ -1,7 +1,57 @@
 <!-- Partial page for products  -->
-<!-- Use cache for fater load time -->
+<!-- Use cache for faster load time -->
 <!-- ISSUE: Cache is messing around with the admin buttons. -->
 <!-- >% cache product do %> -->
+
+<div class="product-item col-xs-6 col-md-4">
+
+  <!-- Product Image       -->
+  <%= link_to image_tag(product.image_url, width: "300", height: "200", class: "img-responsive"), product%>
+
+  <!-- Product Title        -->
+  <h2><a href="#"><%= product.name %></a></h2>
+  <hr>
+
+  <!-- Product Rating      -->
+  
+  <hr>
+
+  <!-- Product Description -->
+  <p><%= product.description %> This text describes the above product a little not too much but just enough or maybe a little more</p>
+
+  <!-- Product Colour      -->  
+  <p><strong>Color:</strong> &nbsp <%= product.color %></p>
+
+  <!-- Product Location    -->
+
+  <p><strong>Location:</strong> &nbsp <%= product.location %></p>
+
+  <!-- Product Price       -->  
+  <p>
+    <strong>Price:</strong> 
+    &nbsp
+    <%= number_to_currency(product.price, unit: "£", separator: ".", delimiter: "") %>
+  </p>
+
+  <hr>
+
+  <!-- Product View Button -->
+
+  <hr>
+  <%= link_to 'View this product <i class="fa fa-arrow-circle-right"></i>'.html_safe, product, class: "btn btn-default btn-xs pull-right" %>
+
+  <!-- Product Edit Prod.  -->
+  <hr>  
+
+  <hr>
+  
+
+
+  <a class="btn btn-default btn-xs pull-right" href="#">View this product <i class="fa fa-arrow-circle-right"></i></a>
+</div>
+
+<!-- OLD PAGE -->
+
   <!-- Use bootstrap gridview -->
   <div class="product-item--index col-xs-12 col-sm-4 col-md-4 col-lg-3">
     <!-- Creates a thumbnail image of the product -->

@@ -27,6 +27,7 @@ gem 'brakeman', :require => false
 gem 'angularjs-rails'
 gem 'redis-rails'
 gem 'newrelic_rpm'
+gem 'font-awesome-rails'
 
 # Development/Test Environment
 group :development, :test do  
