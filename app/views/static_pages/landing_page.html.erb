@@ -1,4 +1,84 @@
 
+<div class="row">
+  
+  <!-- Primary Content: Home Page Feature -->
+  <section class="content-primary col-md-5">
+
+    <!-- Carousel Feature -->
+    <div id="homepage-feature" class="carousel slide" data-ride="carousel">    
+
+      <!-- Carousel Indicators -->
+      <ol class="carousel-indicators">
+        <% (0..(@products.length-1)).each do |n| %>
+        <li data-target="#carousel-example-generic" data-slide-to="<%=n%>" class=<%="active" if n == 0 %>></li>      
+        <% end %> 
+      </ol>
+
+      <!-- Wrapper for slides -->
+      <div class="carousel-inner" role="listbox">
+        <!-- Populate the products on the carousel page. -->
+        <% @products.each do |product| %>
+        <div class="item<%=" active" if product == @products.first %>">
+          <%= image_tag(product.image_url, width: "600", height: "480", class: "img-responsive") %>
+          <div class="carousel-caption">
+            <%= product.name %>
+          </div>
+        </div><!-- / Slide X -->
+        <% end %>      
+      </div><!-- / Wrapper for slides -->
+      
+      <!-- Carousel Controls -->
+      <a class="left carousel-control" href="#homepage-feature" role="button" data-slide="prev">
+        <span class="icon fa fa-chevron-left"></span>
+      </a>
+      <a class="right carousel-control" href="#homepage-feature" role="button" data-slide="next">
+        <span class="icon fa fa-chevron-right"></span>
+      </a>
+
+    </div><!-- /#homepage-feature.carousel -->
+
+    <!-- Featured Content -->
+    <h2>Featured Content</h2>
+    <p>Suspendisse et arcu felis, ac gravida turpis. Suspendisse potenti. Ut porta rhoncus ligula, sed fringilla felis feugiat eget.</p>
+    <p><a class="btn btn-feature btn-lg pull-right" href="#">Learn more <span class="icon fa fa-arrow-circle-right"></span></a></p>
+
+  </section><!-- /content-primary -->
+
+  <!-- Secondary Content: Middle Column Feature -->
+  <section class="content-secondary col-md-4">
+
+      <h3>Welcome!</h3>
+      <p>Suspendisse et arcu felis, ac gravida turpis. Suspendisse potenti. Ut porta rhoncus ligula, sed fringilla felis feugiat eget. In non purus quis elit iaculis tincidunt. Donec at ultrices est.</p>
+      <p><a class="btn btn-primary pull-right" href="#">Read more <span class="icon fa fa-arrow-circle-right"></span></a></p>
+
+      <h3>Recent Updates</h3>
+      <p>Suspendisse et arcu felis, ac gravida turpis. Suspendisse potenti. Ut porta rhoncus ligula, sed fringilla felis feugiat eget. In non purus quis elit iaculis tincidunt. Donec at ultrices est.</p>
+      <p><a class="btn btn-primary pull-right" href="#">Read more <span class="icon fa fa-arrow-circle-right"></span></a></p>
+
+      <h3>And another thing</h3>
+      <p>Suspendisse et arcu felis, ac gravida turpis. Suspendisse potenti. Ut porta rhoncus ligula, sed fringilla felis feugiat eget. In non purus quis elit iaculis tincidunt. Donec at ultrices est.</p>
+      <p><a class="btn btn-primary pull-right" href="#">Read more <span class="icon fa fa-arrow-circle-right"></span></a></p>
+
+  </section><!-- /content-scondary -->
+
+  <!-- Tertiary Content: Last Column Feature -->
+  <section class="content-tertiary col-md-3">
+      <h4>Don't Miss!</h4>
+      <p>Suspendisse et arcu felis, ac gravida turpis. Suspendisse potenti. Ut porta rhoncus ligula, sed fringilla felis feugiat eget. In non purus quis elit iaculis tincidunt. Donec at ultrices est.</p>
+      <p><a class="btn btn-default btn-xs pull-right" href="#">Read more <span class="icon fa fa-arrow-circle-right"></span></a></p>
+      <h4>Check it out</h4>
+      <p>Suspendisse et arcu felis, ac gravida turpis. Suspendisse potenti. Ut porta rhoncus ligula, sed fringilla felis feugiat eget. In non purus quis elit iaculis tincidunt. Donec at ultrices est.</p>
+      <p><a class="btn btn-default btn-xs pull-right" href="#">Read more <span class="icon fa fa-arrow-circle-right"></span></a></p>
+      <h4>Finally</h4>
+      <p>Suspendisse et arcu felis, ac gravida turpis. Suspendisse potenti. Ut porta rhoncus ligula, sed fringilla felis feugiat eget. In non purus quis elit iaculis tincidunt. Donec at ultrices est.</p>
+      <p><a class="btn btn-default btn-xs pull-right" href="#">Read more <span class="icon fa fa-arrow-circle-right"></span></a></p>
+  </section><!-- /content-tertiary -->
+
+</div><!-- /.row -->
+
+
+<!-- OLD PAGE: named Landing Page, which also call these partials. -->
+
 <!-- Landing Header -->
 <%= render partial: 'landing_heading' %>
 
