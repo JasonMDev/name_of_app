@@ -19,7 +19,7 @@
         <!-- Populate the products on the carousel page. -->
         <% @products.each do |product| %>
         <div class="item<%=" active" if product == @products.first %>">
-          <%= image_tag(product.image_url, width: "600", height: "480", class: "img-responsive") %>
+          <%= image_tag(product.image_url, class: "img-responsive") %>
           <div class="carousel-caption">
             <%= product.name %>
           </div>
