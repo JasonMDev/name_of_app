@@ -159,8 +159,118 @@ main {
 }
 
 /* CAROUSEL */
+/* Wrapper for the slide container and indicators */
+.carousel {
+  position: relative;
+  padding: 2px 2px 20px;
+  background-color: hsla(0,0%,0%,0.1);
+}
 
-/* Not added yet */
+.carousel-inner {
+  > .item {
+
+    max-height: 640px;
+
+    /* Account for jankitude on images*/
+    > img,
+    > a > img {
+      @include img-responsive;
+      line-height: 1;
+      min-width: 100%;
+      /* adding media queries to position images*/
+      @media (min-width: $screen-md-min) {
+        margin-top: -40px;
+      }
+      @media (min-width: $screen-lg-min) {
+        margin-top: -60px;
+      }
+    }
+  }
+}
+
+
+/* Left/right controls for nav */
+
+.carousel-control {
+
+  // Toggles
+  .icon-prev,
+  .icon-next,
+  .glyphicon-chevron-left,
+  .glyphicon-chevron-right,
+  .icon {
+    position: absolute;
+    top: 50%;
+    margin-top: -10px;
+    z-index: 5;
+    display: inline-block;
+  }
+  .icon-prev,
+  .glyphicon-chevron-left,
+  &.left .icon {
+    left: 20%;
+    margin-left: 0px;
+  }
+  .icon-next,
+  .glyphicon-chevron-right,
+  &.right .icon {
+    right: 20%;
+    margin-right: 0px;
+  }
+  .icon-prev,
+  .icon-next,
+  .icon {
+    width:  20px;
+    height: 20px;
+    line-height: 1;
+    margin-top: -14px;
+  }
+}
+
+/* Optional indicator pips */
+
+.carousel-indicators {
+  bottom: 0;
+  margin-bottom: 0;
+
+  li {
+    display: inline-block;
+    width:  12px;
+    height: 12px;
+    margin: 0;
+    text-indent: -999px;
+    background-color: $carousel-indicator-bg;
+    border: 0px solid $carousel-indicator-border-color;
+    border-radius: 10px;
+    cursor: pointer;
+  }
+  li:hover, 
+  .active {
+    margin: 0;
+    width:  12px;
+    height: 12px;
+    background-color: $carousel-indicator-active-bg;
+  }
+}
+
+/* Scale up controls for tablets and up*/
+@media screen and (min-width: $screen-sm-min) {
+
+  /*  Scale up the controls a smidge*/
+  .carousel-control {
+    .icon-chevron-left, 
+    .icon-chevron-right,
+    .icon-prev,
+    .icon-next {
+      width: ($carousel-control-font-size * 1.5);
+      height: ($carousel-control-font-size * 1.5);
+      margin-top: ($carousel-control-font-size / -2);
+      font-size: ($carousel-control-font-size * 1.5);
+    }
+  }
+}
+
+
 
 /* FOOTER */
 footer[role="contentinfo"] {
