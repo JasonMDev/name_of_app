@@ -1,0 +1,73 @@
+/* VARIABLES */
+
+/*Grays */
+/*-------------------------*/
+
+$gray-darker:             #222; 
+$gray-dark:               #454545;
+$gray:                    #777; 
+$gray-light:              #aeaeae;
+$gray-lighter:            #ccc;
+$gray-lightest:           #ededed;
+$off-white:               #fafafa;
+
+/* Brand colors */
+/* -------------------------*/ 
+$brand-primary:         #3e7dbd;
+$brand-feature:         #c60004;
+
+$text-color:            $gray;
+
+/* Global textual link color. */
+$link-color:            $brand-primary;
+/* Link hover color set via `darken()` function. */
+$link-hover-color:      lighten($link-color, 15%);
+
+/* Typography */
+$font-size-base:          14px;
+$font-size-large:         ceil(($font-size-base * 1.15));
+$font-size-small:         ceil(($font-size-base * 0.90));
+
+/* Button */
+$btn-default-color:              $gray; 
+$btn-default-bg:                 $gray-lightest; 
+$btn-default-border:             darken($btn-default-bg, 5%);
+
+$btn-feature-color:              #fff; 
+$btn-feature-bg:                 $brand-feature; 
+$btn-feature-border:             darken($btn-feature-bg, 5%); 
+
+
+/* Point at which the navbar stops collapsing */
+$grid-gutter-width:         30px !default;
+$container-desktop:            (940px + $grid-gutter-width) !default;
+$container-md:                 $container-desktop !default;
+$grid-float-breakpoint: $container-md;
+
+/* Navbar */
+$navbar-height:                    44px; 
+$navbar-margin-bottom:             0; 
+$navbar-border-radius:             0;
+$navbar-default-color:             $text-color;
+$navbar-default-bg:                #fff;
+$navbar-default-link-hover-color:          $navbar-default-color; 
+$navbar-default-link-hover-bg:             darken($navbar-default-bg, 5%);
+$navbar-default-link-active-color:         $navbar-default-color;
+$navbar-default-link-active-bg:            $navbar-default-link-hover-bg;
+$navbar-default-toggle-hover-bg:           transparent;
+$navbar-default-toggle-icon-bar-bg:        $gray; 
+$navbar-default-toggle-border-color:       transparent;
+$navbar-inverse-color:                      $gray-lightest;
+$navbar-inverse-bg:                         $brand-primary;
+$navbar-inverse-link-color:                 $navbar-inverse-color;
+$navbar-inverse-link-hover-color:           #fff;
+$navbar-inverse-link-hover-bg:              darken($navbar-inverse-bg, 5%);
+
+/* Carousel */
+$carousel-control-font-size:                  20px;
+$carousel-control-width:                      15%;
+$carousel-control-opacity:                    .5;
+$carousel-control-font-size-large:            $carousel-control-font-size * 1.5;
+$carousel-indicator-bg:                       $gray-light;
+$carousel-indicator-active-bg:                $gray-lightest;
+$carousel-indicator-border-color:             transparent;

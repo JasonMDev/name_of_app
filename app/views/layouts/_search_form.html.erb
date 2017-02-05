@@ -1,9 +1,6 @@
-<form class="navbar-form navbar-left">
-  <%= form_tag("/products", method: "get", role: "search" ) do %>
-    <div class="form-group">    
-      <%= label_tag(:q, "Search for:", id: "label-search", class: "form-search") %>
-      <%= text_field_tag :q, nil, class: "form-control form-search", placeholder: "Item" %>
-      <%= submit_tag("Go", class: "btn btn-default form-search", id: "btn-search") %>
-    </div>
-  <% end %>
-</form>
+<%= form_tag("/products", method: "get", role: "search", class:"navbar-form navbar-left" ) do %>
+  <div class="form-group">        
+    <%= text_field_tag :q, nil, class: "form-control", placeholder: "Search Product" %>
+  </div>
+  <%= submit_tag("Go", class: "btn btn-default form-search", id: "btn-search") %>
+<% end %>

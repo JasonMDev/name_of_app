@@ -4,3 +4,29 @@
 <div class="img-container">
 	<%= image_tag("webpiccontactheader1.jpg", size: "192x108", class: "img-responsive") %>
 </div>
+
+<!-- OLD PAGE: named Landing Page, which also call these partials. -->
+
+<!-- Landing Header -->
+<%= render partial: 'landing_heading' %>
+
+
+<!-- Add default fragment cache block -->
+<!-- Original load time: 2220ms -->
+<!-- First Fragment Write time: 2245ms -->
+<!-- After initial fragment cache read load: 185ms -->
+
+<% cache do %>
+  <!-- Make the app sleep. -->
+  <% sleep 2 %>
+  <hr>
+  <!-- Landing Carousel -->
+  <%= render partial: 'landing_carousel' %>
+  <hr>
+<% end %>
+
+<!-- Landing Feature -->
+<%= render partial: 'landing_feature' %>
+<hr>
+<h3><%= link_to 'Show other products', products_path %></h3> 
+<hr>
