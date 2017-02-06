@@ -131,7 +131,7 @@ main {
     h1, h2, h3, h4 {
       clear: both;
       padding-top: 20px;
-      @media (min-width: $container-sm) {
+      @media (min-width: $screen-sm-min) {
         &:first-child {
           margin-top: 0;
           padding-top: 0;
@@ -146,7 +146,7 @@ main {
     font-size: $font-size-small;
   }
   /* Make columns clear floats in narrow viewport single-column layout*/
-  @media (max-width: $container-sm) {
+  @media (max-width: $screen-sm-min) {
     [class*="col-"] {
       clear: both;
     }
@@ -305,8 +305,9 @@ main {
   .options-list {
     list-style-type: none;
     padding-left: 0;
-    li {        
+    li {
       a {
+        /* Added bootstrap btn in html */
         padding-left: 0;
         padding-right: 0;
         color: $gray;
@@ -316,6 +317,27 @@ main {
         .active & {
           color: $link-color;
         }
+        /* Create an Font Awesome Icon and applies as CSS to element */
+        &:before {
+          display: inline-block;
+          font-family: FontAwesome;
+          font-style: normal;
+          font-weight: normal;
+          line-height: 1;
+          -webkit-font-smoothing: antialiased;
+          -moz-osx-font-smoothing: grayscale;
+          content: "\f096";
+          width: 1.28571429em;
+          text-align: center;
+        }
+        /*Font-awesome: square box becomes checked.*/
+        &:hover:before,
+        &:focus:before,
+        &:active:before,
+        .active &:before {
+          content: "\f046";
+        }
+
       }  
     }
   }    
@@ -323,6 +345,9 @@ main {
 
 /* Clearance Tags*/
 .choose-clearance {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
   width: 92.5%;
   padding-top: 20px;
   padding-bottom: 12px;
@@ -353,9 +378,6 @@ main {
 /* Product Items */
 .product-item {
   padding-bottom: 32px;
-  .img-product {
-    width: 100%;
-  }
   h2 {
     font-size: $font-size-large;
     line-height: 1.2;
@@ -383,8 +405,6 @@ main {
     display: none;
   }
 }
-
-
 
 /* FOOTER */
 footer[role="contentinfo"] {

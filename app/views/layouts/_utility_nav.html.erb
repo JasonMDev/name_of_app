@@ -1,0 +1,31 @@
+<% if user_signed_in? %>
+<!-- Utility Nav: Logged In -->
+<div class="utility-nav">
+  <ul>
+
+    <!-- Logged in as: -->
+    <li><a href="#" title="Logged in as:"><i class="icon fa fa-user fa-lg"></i> <span><%= current_user.first_name %> <%= current_user.last_name %></span></a></li>
+
+    <!-- Admin: If signed in and has admin rights -->
+    <% if signed_in? && current_user.admin? %>
+      <!-- Admin -->
+      <li><%= link_to ('<i class="icon fa fa-users fa-lg"></i> <span>Admin: List Users</span>').html_safe, users_path %></li>
+    <% end %>
+
+    <!-- View Cart -->
+    <li><a href="#" title="View Cart"><i class="icon fa fa-shopping-cart fa-lg"></i> <span>View Cart</span></a></li>
+
+  </ul>
+</div><!-- /.utility-nav -->
+
+<!-- Only shows Login or Register button if signed out --> 
+<% else %>
+<!-- Utility Nav: Logged Out -->
+<div class="utility-nav">
+  <ul>
+    <!-- Login or Register -->
+    <li><%= link_to ('<i class="icon fa fa-user fa-lg"></i> <span>Log In or Register</span>').html_safe, new_user_session_path %></li>
+    <li><a href="#" title="View Cart"><i class="icon fa fa-shopping-cart fa-lg"></i> <span>View Cart</span></a></li>
+  </ul>
+</div><!-- /.utility-nav -->
+<% end %>

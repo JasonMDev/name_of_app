@@ -3,9 +3,24 @@
 <% logger.debug "Product Name: #{@product.name}"%>
 <% logger.debug "Page Param ID: #{params[:id]}"%>
 
+<!-- Bread Crumb -->
+<ul class="breadcrumb">
+  <li><%= link_to "Home", root_path %></li>
+  <li><%= link_to 'Bicycles', products_path %></li>
+  <li><%= link_to 'Custom Made Bicycles', products_path %></li>
+  <li class="active"><%= @product.name %></li>
+</ul>
+
+<!-- Page Header -->
+<div class="page-header center">
+  <h1><%= @product.name %>&nbsp | &nbsp<small><%= @product.description %></small></h1>
+</div> 
+
+<div class="row">
+</div>   
+
 <!-- Header -->
 <div class="container-fluid ">
-  <h1>Product Details</h1>
   <p class="text-center center">
     <%= link_to 'Add to basket', edit_product_path(@product), class: "btn btn-primary", role: "button"   %> | 
     <%= link_to 'Back', products_path, class: "btn btn-primary", role: "button"    %>
