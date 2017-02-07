@@ -1,31 +1,26 @@
 <!-- Page Header -->
 <div class="page-header center">
-
   <%= flash[:notice] %>
+  <h1>Contact <small>We would like to hear from you</small></h1>
+</div>  
 
-  <h1>Contact <small>| Bike Basingstoke</small></h1>
-  <p>We would like to hear from you.</p>
-  <br>
-
-  
-
-  <%= form_tag("/static_pages/thank_you") do %>
-  <div class="row">
-    <div class="col-md-6 ">
-      <div class="form-group">
-        <%= label_tag :name, "Name:" %>
-        <%= text_field_tag :name, nil, class: "form-control", placeholder: "Enter Name" %>
-      </div>
-      <div class="form-group">
-        <%= label_tag :email, "Email Address:" %>
-        <%= text_field_tag :email, nil, class: "form-control", placeholder: "Enter Email" %>
-      </div>
-      <div class="form-group">
-        <%= label_tag :message, "Message:" %>
-        <%= text_area_tag :message, nil, class: "form-control", placeholder: "Enter Message" %>
-      </div>
-      <%= submit_tag "Send", class: "btn btn-primary form-search" %> 
+<%= form_tag("/static_pages/thank_you") do %>
+<div class="row">
+  <div class="col-md-6 ">
+    <div class="form-group">
+      <%= label_tag :name, "Name:" %>
+      <%= text_field_tag :name, nil, class: "form-control", placeholder: "Enter Name" %>
     </div>
+    <div class="form-group">
+      <%= label_tag :email, "Email Address:" %>
+      <%= text_field_tag :email, nil, class: "form-control", placeholder: "Enter Email" %>
+    </div>
+    <div class="form-group">
+      <%= label_tag :message, "Message:" %>
+      <%= text_area_tag :message, nil, class: "form-control", placeholder: "Enter Message" %>
+    </div>
+    <%= submit_tag "Send", class: "btn btn-primary form-search" %> 
   </div>
-  <% end %> 
-</div> 
+</div>
+<% end %> 
+ 

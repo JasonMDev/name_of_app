@@ -30,9 +30,9 @@
   <div class="admin-buttons">      
     <% if signed_in? && current_user.admin? %>
       <hr>        
-      <%= link_to ('<span class="glyphicon glyphicon-pencil"></span>').html_safe, edit_product_path(@product), class: "btn btn-warning center block" %>
+      <%= link_to ('<span class="glyphicon glyphicon-edit"></span>').html_safe, edit_product_path(@product), class: "btn btn-warning btn-xs" %>
       &nbsp | &nbsp
-      <%= link_to ('<span class="glyphicon glyphicon-remove"></span>').html_safe, @product, class: "btn btn-danger center block", method: :delete, data: { confirm: 'Are you sure?' }%>
+      <%= link_to ('<span class="glyphicon glyphicon-trash"></span>').html_safe, @product, class: "btn btn-danger btn-xs", method: :delete, data: { confirm: 'Are you sure?' }%>
       <hr>
     <% end %>      
   </div>  <!-- /admin-buttons -->  
