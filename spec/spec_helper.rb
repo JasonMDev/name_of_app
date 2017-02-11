@@ -1,5 +1,5 @@
 require 'rspec/core'
-# Works without
+# Factory Girls works without entry below
 #require 'support/factory_girl'
 require 'rubygems'
 require 'spork'

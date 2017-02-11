@@ -8,7 +8,8 @@ FactoryGirl.define do
     first_name "Joe"
     last_name "Smoe"
     email 
-    password "1234567890"   
+    password "1234567890"
+    password_confirmation { |u| u.password }   
     admin false
   end
 
@@ -18,7 +19,8 @@ FactoryGirl.define do
     first_name "Admin"
     last_name "Smadmin"
     email 
-    password "1234567890"   
+    password "1234567890"
+    password_confirmation { |u| u.password }   
     admin true
   end
 

@@ -1,11 +1,12 @@
 require 'rails_helper'
 
-describe UsersController, :type => :controller do 
+describe UsersController, :type => :controller do
 
   before do
     @user1 = FactoryGirl.create(:user)
     # @user1 = User.create!(email: "js1@example.com", password: "secret123")
     @user2 = User.create!(email: "js2@example.com", password: "secret123")
+    
   end
 
   describe "GET #show" do
@@ -41,3 +42,9 @@ describe UsersController, :type => :controller do
   end
 
 end
+
+
+# Notes:
+# [ Can only be used outside of "context" and "it"]
+# let(:user2) { User.create!(email: 'peter@example.com', password: '1234567890') }
+# Usage: get :show, params: { id: user2.id }

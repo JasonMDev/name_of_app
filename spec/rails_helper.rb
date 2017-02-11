@@ -1,9 +1,9 @@
 # This file is copied to spec/ when you run 'rails generate rspec:install'
 ENV['RAILS_ENV'] ||= 'test'
+require 'spec_helper'
 require File.expand_path('../../config/environment', __FILE__)
 # Prevent database truncation if the environment is production
 abort("The Rails environment is running in production mode!") if Rails.env.production?
-require 'spec_helper'
 require 'rspec/rails'
 # Add additional requires below this line. Rails is not loaded until this point!
 # note: require 'devise' after require 'rspec/rails'
@@ -58,7 +58,9 @@ RSpec.configure do |config|
 
   # Devise Integration
   # Previous
+  # Use the following instead if you are on Devise >= 4.1.1
   #config.include Devise::TestHelpers, :type => :controller
   # 20160917
+  # For Devise <= 4.1.0
   config.include Devise::Test::ControllerHelpers, :type => :controller
 end

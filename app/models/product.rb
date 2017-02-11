@@ -1,7 +1,8 @@
 class Product < ActiveRecord::Base
-	has_many :orders
-	has_many :comments
-  validates :name, presence: true
+  has_many :orders
+  has_many :comments
+  validates :name, :description, :image_url, presence: true
+  validates :color, :location, :price, presence: true
 
   # Raty average rating
   def average_rating

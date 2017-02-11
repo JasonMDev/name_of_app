@@ -65,9 +65,8 @@ describe StaticPagesController, :type => :controller do
       expect(response).to render_template("about")
     end
   end
-
 end
 
 #TODO:
 # Add other controller actions here.
-# thank_you
+# This is mailer:  post thank_you
