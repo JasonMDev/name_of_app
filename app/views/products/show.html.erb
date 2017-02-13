@@ -4,8 +4,13 @@
 <% logger.debug "-  Product ID: #{@product.id}"%>
 <% logger.debug "-  Product Name: #{@product.name}"%>
 <% logger.debug "-  Page Param ID: #{params[:id]}"%>
-<% logger.debug "---=== Logger Debug ===---"%>
+<% logger.debug "---=== END ===---"%>
 <% logger.debug " "%>
+
+<!-- Alternative RAtings show using scopes and custom methods -->
+<% @product.comments.order(rating: :desc).first.rating %>
+<% @product.comments.rating_desc.first.rating %>
+<% @product.highest_rating_comment.rating %>
 
 <!-- Bread Crumb -->
 <ul class="breadcrumb">
@@ -14,6 +19,8 @@
   <li><%= link_to 'Custom Made Bicycles', products_path %></li>
   <li class="active"><%= @product.name %></li>
 </ul>
+
+
 
 <!-- Page Header -->
 <div class="page-header center">
