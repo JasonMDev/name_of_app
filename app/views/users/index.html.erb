@@ -20,10 +20,12 @@
         <th>#</th>
         <th>First name</th>
         <th>Last name</th>
-        <th>Show</th>
-        <th>Edit</th>
-        <th>Destroy</th>
-        <th colspan="0"></th>
+        <% if signed_in? && current_user.admin? %>
+          <th>Show</th>
+          <th>Edit</th>
+          <th>Destroy</th>
+          <th colspan="0"></th>
+        <% end %> 
       </tr>
     </thead>
 
