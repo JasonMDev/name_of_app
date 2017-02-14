@@ -38,7 +38,9 @@ class PaymentsController < ApplicationController
 
     end
 
-    redirect_to product_path(@product)
+    # Redirect back to the product page.
+    # Note: if uncommented, it does not redirect to the "thank_you" page
+    #redirect_to product_path(@product)
   end
 
 end

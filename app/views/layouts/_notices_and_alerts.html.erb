@@ -1,4 +1,6 @@
 <% flash.each do |message_type, message| %>
+  <% logger.debug "Message Type: #{message_type}"%>
+  <% logger.debug "Message: #{message}"%>
   <% alert_type = 'success' if message_type === 'notice' %>
   <% alert_type = 'danger' if message_type === 'alert' %>
   <!-- Other bootstrap options -->
