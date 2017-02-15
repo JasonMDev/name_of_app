@@ -6,10 +6,15 @@
 <div class="product-item col-xs-6 col-md-4">
 
   <!-- Product Image       -->
-  <%= link_to image_tag(product.image_url, Width: "300", height: "200", class: "img-responsive"), product%>
+  <%= link_to image_tag(product.image_url, Width: "300", height: "200", class: "img-responsive"), product %>
 
   <!-- Product Title        -->
-  <h2><a href="#"><%= product.name %></a></h2>
+  <h2>
+    <%= link_to(product) do %>
+      <%= product.name %>
+    <% end %>
+  </h2>  
+
   <hr>
 
   <!-- Product Rating      -->

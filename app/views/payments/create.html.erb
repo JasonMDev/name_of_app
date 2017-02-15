@@ -6,7 +6,7 @@
 
   <div class="panel-body">
     <p>Thank you. Your order has been received. Your product will be posted shortly.</p>
-    <p><%= link_to "Click here to see the details", orders_path %></p>    
+    <p><%= link_to "Click here to see the details", order_path(@last_order) %></p>    
   </div><!-- / panel-body -->
 
   <div class="panel-footer">
@@ -15,3 +15,13 @@
   </div><!-- / panel-footer -->
 
 </div><!-- / panel -->
+
+<!-- Debug info: shows in terminal -->
+<% logger.debug " "%>
+<% logger.debug "---=== Logger Debug ===---"%>
+<% logger.debug "-  Product ID: #{@product.id}"%>
+<% logger.debug "-  Product Name: #{@product.name}"%>
+<% logger.debug "-  Page Param ID: #{params[:id]}"%>
+<% logger.debug "   Order ID: #{@last_order.id}"%>
+<% logger.debug "---=== END ===---"%>
+<% logger.debug " "%>

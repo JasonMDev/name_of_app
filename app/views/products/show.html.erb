@@ -7,7 +7,7 @@
 <% logger.debug "---=== END ===---"%>
 <% logger.debug " "%>
 
-<!-- Alternative RAtings show using scopes and custom methods -->
+<!-- Alternative Ratings show using scopes and custom methods -->
 <% @product.comments.order(rating: :desc).first.rating %>
 <% @product.comments.rating_desc.first.rating %>
 <% @product.highest_rating_comment.rating %>
@@ -19,8 +19,6 @@
   <li><%= link_to 'Custom Made Bicycles', products_path %></li>
   <li class="active"><%= @product.name %></li>
 </ul>
-
-
 
 <!-- Page Header -->
 <div class="page-header center">

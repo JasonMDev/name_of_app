@@ -25,6 +25,8 @@ class PaymentsController < ApplicationController
       
       if charge.paid
         Order.create!(product_id: @product.id , user_id: @user.id, total: @product.price )
+        # Own code: Get order params
+        @last_order = Order.where(user_id: @user.id).order(id: :desc).first
       end
 
       flash[:success] = "Payment processed successfully."

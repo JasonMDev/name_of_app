@@ -7,12 +7,17 @@ class StaticPagesController < ApplicationController
   $redis.set('Page-Visit', '0')
 
   def landing_page
+    # Count page visits
+    @page_count = $redis.incr('Page-Visit')
     # Featured product.
     @featured_product = Product.last
     # First 3 products.
     @products = Product.limit(5)
-    # Count page visits
-    @page_count = $redis.incr('Page-Visit')
+    # Alternative to this is and is random :
+    # @products = Product.take(5)
+    # Or first 5 items
+    # @products = Product.first(5)
+    
   end  
 
   def index

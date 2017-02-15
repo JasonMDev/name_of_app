@@ -9,7 +9,8 @@ class UsersController < ApplicationController
   # GET /users
   # GET /users.json
   def index
-    @users = User.all.order("created_at ASC")
+    @users = User.all.order(created_at: :asc)
+    
   end
 
   # GET /users/1
