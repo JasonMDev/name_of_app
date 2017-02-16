@@ -21,12 +21,14 @@
   <!-- Visual Average Rating and information -->        
   <p>
     <strong>Average Rating:</strong>
-    <div class="rated" data-score="<%= product.average_rating %>">
+    <div id="average-rating" class="rated" data-score="<%= product.average_rating %>">
     </div>
     <br>
-    ( &nbsp 
-    <%= pluralize(product.total_rating.to_f, "customer review") %> 
-    &nbsp )
+    <p>
+      ( &nbsp 
+      <%= pluralize(product.total_rating.to_f, "customer review") %>          
+      &nbsp )
+    </p>
     <hr> 
   </p>
 

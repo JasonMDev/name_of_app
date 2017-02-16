@@ -1,35 +1,18 @@
+//Hide the new comment form.
+//$("#new_comment").hide();
+
 // Render html to confirm receipt of message.
 $("#new_comment").html("Thank you for your review!");
 
 // Render comment partial to confirm receipt of message.
 $(".comments-block--individual").prepend("<%= j render @comment %>");
 
-// Call rating.js with raty jQuery code.
-// Need to make code DRY. 
-// See AJX binding in the RAILS guide.
-//$.getScript('rating.js');
+// Update average rating including the new individual rating from new comment
+$("#average-rating").attr('data-score', "<%= @product.average_rating %>");
 
-// Update raty score
-// Raty ratings plugin.
-// See jquery.raty.js file.
-$('.rating').raty({
-  path: ' /assets', 
-  scoreName: 'comment[rating]' 
-});
+// Raty plugin will refresh with the success of the AJAX.
+// See site.js file.
 
-$('.rated').raty({ 
-  path: ' /assets',
-  readOnly: true,
-  score: function() {
-    return $(this).attr('data-score');
-    }
-  });  
-
-//Render html to confirm receipt of message.
-//$("#new_comment").html("Thank you for your review!");
-
-//Hide the new comment form.
-//$("#new_comment").hide();
 
 
 

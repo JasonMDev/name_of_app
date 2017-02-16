@@ -3,11 +3,13 @@
   <div>
     <div class="product-reviews">
       <h4>Customer Reviews...</h4>
-      <div class="rated rated-average" data-score="<%= @product.average_rating %>">
+      <p>
         <strong>Average Rating:</strong> 
         ( &nbsp 
         <%= pluralize(@product.total_rating.to_f, "customer review") %> 
         &nbsp )
+      </p>
+      <div id="average-rating" class="rated rated-average" data-score="<%= @product.average_rating %>">
       </div>
     </div>
     <hr>
@@ -20,23 +22,11 @@
     
     <div class="row bg-info">
       <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+        <!-- Class is unique. Used by Create.js.erb AJAX -->
         <div class="comments-block--individual">
           <% @comments.each do |comment| %>        
             <!-- Individual Comment. -->
-            <div>
-              <hr>
-              <p>
-                <%= comment.user.first_name %> &nbsp 
-                <small><em>
-                  <%= "#{ time_ago_in_words(comment.created_at)} ago" %>
-                </em></small> &nbsp
-                <% if signed_in? && current_user.admin? %>
-                  <%= link_to ('<span class="glyphicon glyphicon-remove"></span>').html_safe, product_comment_path(@product, comment), method: :delete, data: { confirm: 'Are you sure?' }%>
-                <% end %>  
-              </p>
-              <div class="rated" data-score="<%= comment.rating %>"></div>     
-              <p><%= comment.body %></p>
-            </div><!-- /Indv. Comment. -->  
+            <%= render partial: 'comments/comment', locals: {comment: comment}  %>
           <% end %>
         </div> <!-- /comments-block-individual -->  
       </div> <!-- /col -->  

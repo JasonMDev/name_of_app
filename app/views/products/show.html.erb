@@ -8,9 +8,9 @@
 <% logger.debug " "%>
 
 <!-- Alternative Ratings show using scopes and custom methods -->
-<% @product.comments.order(rating: :desc).first.rating %>
-<% @product.comments.rating_desc.first.rating %>
-<% @product.highest_rating_comment.rating %>
+<%# @product.comments.order(rating: :desc).first.rating %>
+<%# @product.comments.rating_desc.first.rating %>
+<%# @product.highest_rating_comment.rating %>
 
 <!-- Bread Crumb -->
 <ul class="breadcrumb">
@@ -73,12 +73,12 @@
       <h4><%= @product.name %></h4>
       <!-- Average Rating View -->
       <hr>
-      <p>        
-        <div class="rated" data-score="<%= @product.average_rating %>">
-          <strong>Average Rating:</strong> 
-          ( &nbsp 
-          <%= pluralize(@product.total_rating.to_f, "customer review") %> 
-          &nbsp )
+      <p>
+        <strong>Average Rating:</strong> 
+        ( &nbsp 
+        <%= pluralize(@product.total_rating.to_f, "customer review") %> 
+        &nbsp )        
+        <div id="average-rating" class="rated" data-score="<%= @product.average_rating %>">          
         </div>
          
       </p>
