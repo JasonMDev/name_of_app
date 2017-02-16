@@ -1,7 +1,7 @@
 class Comment < ActiveRecord::Base
   # Associations
   belongs_to :user
-  belongs_to :product
+  belongs_to :product, touch: true
   validates :body, :user, :product, presence: true
   validates :rating, numericality: { only_integer: true}
 

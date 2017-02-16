@@ -88,13 +88,11 @@
 
     <!-- Populate the products on the index page. -->
     <div class="row">    
-      <!-- Use cache for fater load time -->
-      <!-- ISSUE: Cache forces only first items for the pagination. -->
-      <!-- Disabled cache for now. -->
-      <!-- >% cache (cache_key_for_products) do %> -->
+      <!-- Use cache for faster load time -->
+      <% cache (cache_key_for_products) do %>
         <!-- Populate the products via a partial. -->
-        <%= render @products %>        
-      <!-- >% end %>  -->
+        <%= render @products%>        
+      <% end %>
     </div><!-- /row -->
 
     <!-- Pagination page indexing -->
@@ -107,24 +105,3 @@
   </div><!-- /.products-grid -->
 
 </div><!-- /.row -->
-
-<!-- DIFFERENT PARTIALS -->
-<!-- Partial 1: Original -->
-<!-- Original -->
-<!--  @products.each do |product|  -->
-<!--    render partial: "product", locals: {product: product} -->
-<!--  end  -->
-
-<!-- Partial 2: Original -->
-<!-- Refactored Partial: If partial, model and variable are all same. -->
-<!--  @products.each do |product|  -->
-<!--    render product -->
-<!--  end  -->
-
-<!-- Partial 3: Refactored Partial -->
-<!-- @products is an array of objects, i.e collection. -->
-<!-- render partial: "product", collection: @products -->
-
-<!-- Partial 4: Refactored Partial -->
-<!-- Objects of collection match partial -->
-<!-- render @products -->

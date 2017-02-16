@@ -47,7 +47,8 @@
   </div>  <!-- /admin-buttons -->  
 
   <!-- Product Detail View -->
-  <div class="row">  
+  <div class="row">
+    <!-- Cache Wrapper for individual product -->  
     <% cache @product do %>
 
     <!-- Product Picture -->
@@ -94,12 +95,6 @@
         <%= number_to_currency(@product.price, unit: "£", separator: ".", delimiter: "") %>
       </p>
       <p>
-        <!-- Debug info: shows in terminal -->
-        <% logger.debug "Product ID: #{@product.id}"%>
-        <% logger.debug "Product Name: #{@product.name}"%>
-        <% logger.debug "Page Param ID: #{params[:id]}"%>
-        <% logger.debug "Page Param ID: #{@product.image_url}"%>
-
         <!-- Stripe payment button -->
         <%= form_tag "/payments/create" do %>
           <%= render partial: "shared/stripe_checkout_button" %>

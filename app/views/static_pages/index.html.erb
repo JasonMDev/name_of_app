@@ -1,3 +1,4 @@
+<!-- Page not used -->
 <h1>Welcome to Bike Basingstoke</h1>
 <h3>Your source for used bikes in Berlin</h3>
 
@@ -30,3 +31,54 @@
 <hr>
 <h3><%= link_to 'Show other products', products_path %></h3> 
 <hr>
+
+
+<!-- Cache Info for the /static_pages/landing page -->
+<!-- Add default fragment cache block -->
+<!-- 20170216 Original load time: 1213ms -->
+
+<!-- 20170216: Using 2s sleep to test -->
+<!-- With 2s sleep without cache wrap: 3280ms -->
+<!-- With 2s sleep with cache wrap (1st): 2437ms -->
+<!-- With 2s sleep with cache wrap: 280ms -->
+
+<!-- 20170216 Landing Page: 380ms -->
+<!-- Major contributor to page load: -->
+<!-- # Landing Page/header (only): 250.3ms --> 
+<!-- First Fragment Write time: 319ms -->
+<!-- After initial fragment cache read load: 270ms -->
+<!-- This is NOT useful as the header contain user info -->
+
+<!-- ######################################### -->
+
+<!-- Cache Info for the /products/index.html.erb -->
+<!-- Add default fragment cache block -->
+<!-- 20170216 Original load time: 467ms -->
+
+<!-- 20170216: Russian Doll Caching  -->
+<!-- First Fragment Write time: 587ms -->
+<!-- After initial fragment cache read load: 324ms -->
+
+
+<!-- ######################################### -->
+
+<!-- DIFFERENT PARTIALS for /products/index.html.erb-->
+<!-- Partial 1: Original -->
+<!-- Original -->
+<!--  @products.each do |product|  -->
+<!--    render partial: "product", locals: {product: product} -->
+<!--  end  -->
+
+<!-- Partial 2: Original -->
+<!-- Refactored Partial: If partial, model and variable are all same. -->
+<!--  @products.each do |product|  -->
+<!--    render product -->
+<!--  end  -->
+
+<!-- Partial 3: Refactored Partial -->
+<!-- @products is an array of objects, i.e collection. -->
+<!-- render partial: "product", collection: @products -->
+
+<!-- Partial 4: Refactored Partial -->
+<!-- Objects of collection match partial -->
+<!-- render @products -->
