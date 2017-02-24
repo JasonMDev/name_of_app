@@ -1,5 +1,5 @@
 class StaticPagesController < ApplicationController
-  # You can also specify the layout at the top of your controller 
+  # You can also specify the layout at the top of your controller
   # and it will apply that layout to all of the actions within that controller.
   # layout "static"
 
@@ -17,8 +17,8 @@ class StaticPagesController < ApplicationController
     # @products = Product.take(5)
     # Or first 5 items
     # @products = Product.first(5)
-    
-  end  
+
+  end
 
   def index
   end
@@ -33,7 +33,7 @@ class StaticPagesController < ApplicationController
     @name = params[:name]
     @email = params[:email]
     @message = params[:message]
-    UserMailer.contact_form(@name, @email, @message).deliver_now    
+    UserMailer.contact_form(@name, @email, @message).deliver_now
   end
 
 end
