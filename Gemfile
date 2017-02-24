@@ -5,7 +5,7 @@ source 'https://rubygems.org'
 
 ruby '2.3.0'
 
-gem 'rails',                    '5.0.0.1'
+gem 'rails',                    '5.0.1'
 #gem 'bcrypt',                  '3.1.11'
 gem 'sass-rails',               '5.0.6'
 gem 'uglifier',                 '3.0.0'
@@ -30,7 +30,7 @@ gem 'newrelic_rpm'
 gem 'font-awesome-rails'
 
 # Development/Test Environment
-group :development, :test do  
+group :development, :test do
   gem 'sqlite3',                  '1.3.11'
   gem 'byebug',                   '9.0.0', platform: :mri  #
   gem 'rspec-rails',           '~> 3.5'
@@ -67,5 +67,3 @@ group :production do
   gem 'connection_pool',       '~> 2.2'
   gem 'redis'
 end
-
-
