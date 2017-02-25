@@ -15,9 +15,9 @@
 <div class="page-header center">
   <h1>Fantastic Bikes <small>custom made for you...</small></h1>
   <!-- Pagination Information  -->
-  <!-- div class="page_info" --> 
+  <!-- div class="page_info" -->
   <p><%= page_entries_info @products %></p>
-</div> 
+</div>
 
 <div class="row">
   <!-- Product Category Options Panel -->
@@ -39,59 +39,38 @@
 
       <h3>Categories</h3>
       <ul class="options-list options-categories row">
-        <li class="col-xs-6"><a class="btn btn-sm" href="#">Option 1</a></li>
-        <li class="col-xs-6"><a class="btn btn-sm" href="#">Option 2</a></li>
-        <li class="col-xs-6"><a class="btn btn-sm" href="#">Option 3</a></li>
-        <li class="col-xs-6"><a class="btn btn-sm" href="#">Option 4</a></li>
-        <li class="col-xs-6"><a class="btn btn-sm" href="#">Option 5</a></li>
-        <li class="col-xs-6"><a class="btn btn-sm" href="#">Option 6</a></li>
-        <li class="col-xs-6"><a class="btn btn-sm" href="#">Option 7</a></li>
-        <li class="col-xs-6"><a class="btn btn-sm" href="#">Option 8</a></li>
-        <li class="col-xs-6"><a class="btn btn-sm" href="#">Option 9</a></li>
-        <li class="col-xs-6"><a class="btn btn-sm" href="#">Option 10</a></li>
+        <% for i in 1..10 %>
+        <li class="col-xs-4 col-sm-6"><a class="btn btn-sm" href="#">Option <%= i %></a></li>
+        <% end %>
       </ul>
 
       <h3>Brands</h3>
       <ul class="options-list options-categories row">
-        <li class="col-xs-6"><a class="btn btn-sm" href="#">Option 1</a></li>
-        <li class="col-xs-6"><a class="btn btn-sm" href="#">Option 2</a></li>
-        <li class="col-xs-6"><a class="btn btn-sm" href="#">Option 3</a></li>
-        <li class="col-xs-6"><a class="btn btn-sm" href="#">Option 4</a></li>
-        <li class="col-xs-6"><a class="btn btn-sm" href="#">Option 5</a></li>
-        <li class="col-xs-6"><a class="btn btn-sm" href="#">Option 6</a></li>
-        <li class="col-xs-6"><a class="btn btn-sm" href="#">Option 7</a></li>
-        <li class="col-xs-6"><a class="btn btn-sm" href="#">Option 8</a></li>
-        <li class="col-xs-6"><a class="btn btn-sm" href="#">Option 9</a></li>
-        <li class="col-xs-6"><a class="btn btn-sm" href="#">Option 10</a></li>
+        <% for i in 1..10 %>
+        <li class="col-xs-4 col-sm-6"><a class="btn btn-sm" href="#">Option <%= i %></a></li>
+        <% end %>
       </ul>
 
       <h3>Another Filter</h3>
       <ul class="options-list options-categories row">
-        <li class="col-xs-6"><a class="btn btn-sm" href="#">Option 1</a></li>
-        <li class="col-xs-6"><a class="btn btn-sm" href="#">Option 2</a></li>
-        <li class="col-xs-6"><a class="btn btn-sm" href="#">Option 3</a></li>
-        <li class="col-xs-6"><a class="btn btn-sm" href="#">Option 4</a></li>
-        <li class="col-xs-6"><a class="btn btn-sm" href="#">Option 5</a></li>
-        <li class="col-xs-6"><a class="btn btn-sm" href="#">Option 6</a></li>
-        <li class="col-xs-6"><a class="btn btn-sm" href="#">Option 7</a></li>
-        <li class="col-xs-6"><a class="btn btn-sm" href="#">Option 8</a></li>
-        <li class="col-xs-6"><a class="btn btn-sm" href="#">Option 9</a></li>
-        <li class="col-xs-6"><a class="btn btn-sm" href="#">Option 10</a></li>
+        <% for i in 1..10 %>
+          <li class="col-xs-4 col-sm-6"><a class="btn btn-sm" href="#">Option <%= i %></a></li>
+        <% end %>
       </ul>
 
     </div><!-- /#options-panel -->
 
-  </div><!-- /.products-grid-options -->    
+  </div><!-- /.products-grid-options -->
 
   <!-- Product Item Grid -->
   <div class="products-grid col-sm-9">
 
     <!-- Populate the products on the index page. -->
-    <div class="row">    
+    <div class="row">
       <!-- Use cache for faster load time -->
       <% cache (cache_key_for_products) do %>
         <!-- Populate the products via a partial. -->
-        <%= render @products%>        
+        <%= render @products%>
       <% end %>
     </div><!-- /row -->
 
@@ -100,7 +79,7 @@
       <ul class="pagination">
         <%= will_paginate @products %>
       </ul>
-    </div><!-- /.pagination-wrap -->    
+    </div><!-- /.pagination-wrap -->
 
   </div><!-- /.products-grid -->
 

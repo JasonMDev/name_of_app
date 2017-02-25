@@ -6,44 +6,44 @@
 <div class="product-item col-xs-6 col-md-4">
 
   <!-- Product Image       -->
-  <%= link_to image_tag(product.image_url, Width: "300", height: "200", class: "img-responsive"), product %>
+  <%= link_to image_tag(product.image_url, class: "img-responsive"), product %>
 
   <!-- Product Title        -->
   <h2>
     <%= link_to(product) do %>
       <%= product.name %>
     <% end %>
-  </h2>  
+  </h2>
 
   <hr>
 
   <!-- Product Rating      -->
-  <!-- Visual Average Rating and information -->        
+  <!-- Visual Average Rating and information -->
   <p>
     <strong>Average Rating:</strong>
     <div id="average-rating" class="rated" data-score="<%= product.average_rating %>">
     </div>
     <br>
     <p>
-      ( &nbsp 
-      <%= pluralize(product.total_rating.to_f, "customer review") %>          
+      ( &nbsp
+      <%= pluralize(product.total_rating.to_f, "customer review") %>
       &nbsp )
     </p>
-    <hr> 
+    <hr>
   </p>
 
   <!-- Product Description -->
   <p><%= product.description %> This text describes the above product a little not too much but just enough or maybe a little more</p>
 
-  <!-- Product Colour      -->  
+  <!-- Product Colour      -->
   <p><strong>Color:</strong> &nbsp <%= product.color %></p>
 
   <!-- Product Location    -->
   <p><strong>Location:</strong> &nbsp <%= product.location %></p>
 
-  <!-- Product Price       -->  
+  <!-- Product Price       -->
   <p>
-    <strong>Price:</strong> 
+    <strong>Price:</strong>
     &nbsp
     <%= number_to_currency(product.price, unit: "£", separator: ".", delimiter: "") %>
     <hr>
@@ -51,15 +51,15 @@
 
   <!-- Product Edit Prod.  -->
   <!-- Admin buttons for edit products -->
-  <p class="admin-buttons center">      
+  <p class="admin-buttons center">
     <% if signed_in? && current_user.admin? %>
-      <!-- Edit button for products -->        
+      <!-- Edit button for products -->
       <%= link_to ('<span class="glyphicon glyphicon-pencil"></span>').html_safe, edit_product_path(product), class: "btn btn-warning btn-xs" %>
       &nbsp | &nbsp
       <!-- Delete button for products -->
       <%= link_to ('<span class="glyphicon glyphicon-remove"></span>').html_safe, product, class: "btn btn-danger btn-xs", method: :delete, data: { confirm: 'Are you sure?' }%>
       <hr>
-    <% end %>      
+    <% end %>
   </p> <!-- /admin-buttons -->
 
   <!-- Product View Button -->
@@ -70,6 +70,6 @@
 <!-- Originals kept for reference [Not shown] -->
 <% link_to 'Show', product, class: "btn btn-primary center-block" %>
 <% link_to 'Edit', edit_product_path(product) %>
-<% link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' }%> 
+<% link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' }%>
 
 <% end %>  <!-- /cache -->
