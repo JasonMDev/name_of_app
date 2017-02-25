@@ -1,3 +1,5 @@
+<!-- Individual Product Page -->
+
 <!-- Debug info: shows in terminal -->
 <% logger.debug " "%>
 <% logger.debug "---=== Logger Debug ===---"%>
@@ -14,83 +16,62 @@
 
 <!-- Bread Crumb -->
 <ul class="breadcrumb">
-  <li><%= link_to "Home", root_path %></li>
+  <li><%= link_to ('<span class="glyphicon glyphicon-home"></span>').html_safe, root_path %></li>
   <li><%= link_to 'Bicycles', products_path %></li>
   <li><%= link_to 'Custom Made Bicycles', products_path %></li>
   <li class="active"><%= @product.name %></li>
-</ul>
+  <div class="pull-right">
+    <!-- Buttons floated to the right -->
+    <%= link_to ('<span class="glyphicon glyphicon-check"></span> &nbsp Add to basket ').html_safe, edit_product_path(@product), class: "btn btn-primary btn-xs", role: "button" %>
+    <%= link_to ('<span class="glyphicon glyphicon-backward"></span> &nbsp Back ').html_safe, products_path, class: "btn btn-primary btn-xs", role: "button" %>
+    <% if signed_in? && current_user.admin? %>
+      <%= link_to ('<span class="glyphicon glyphicon-edit"></span>').html_safe, edit_product_path(@product), class: "btn btn-warning btn-xs" %>
+      <%= link_to ('<span class="glyphicon glyphicon-trash"></span>').html_safe, @product, class: "btn btn-danger btn-xs", method: :delete, data: { confirm: 'Are you sure?' }%>
+    <% end %>
+  </div>
+</ul><!-- / Bread Crumb -->
 
 <!-- Page Header -->
 <div class="page-header center">
   <h1><%= @product.name %>&nbsp | &nbsp<small><%= @product.description %></small></h1>
-</div> 
+</div>
 
+<!-- Body of Page -->
 <div class="row">
-</div>   
+  <!-- Cache Wrapper for individual product -->
+  <% cache @product do %>
 
-<!-- Header -->
-<div class="container-fluid ">
-  <p class="text-center center">
-    <%= link_to 'Add to basket', edit_product_path(@product), class: "btn btn-primary", role: "button"   %> | 
-    <%= link_to 'Back', products_path, class: "btn btn-primary", role: "button"    %>
-  </p>
-  <hr>
-  <!-- Admin Buttons -->
-  <div class="admin-buttons">      
-    <% if signed_in? && current_user.admin? %>
-      <hr>        
-      <%= link_to ('<span class="glyphicon glyphicon-edit"></span>').html_safe, edit_product_path(@product), class: "btn btn-warning btn-xs" %>
-      &nbsp | &nbsp
-      <%= link_to ('<span class="glyphicon glyphicon-trash"></span>').html_safe, @product, class: "btn btn-danger btn-xs", method: :delete, data: { confirm: 'Are you sure?' }%>
-      <hr>
-    <% end %>      
-  </div>  <!-- /admin-buttons -->  
+    <!-- Product Image -->
+    <section id="product-image" class="bg-success col-xs-12 col-sm-4 col-md-4 col-lg-4">
+      <!-- Product Image -->
+      <h2>Product Image</h2>
+      <%= image_tag(@product.image_url, width: "350", class: "img-responsive img-zoom", data_zoom_image: @product.image_url) %>
+    </section><!-- /Product Image -->
 
-  <!-- Product Detail View -->
-  <div class="row">
-    <!-- Cache Wrapper for individual product -->  
-    <% cache @product do %>
-
-    <!-- Product Picture -->
-    <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">      
-
-      <div class="thumbnail">
-        <!-- Product Image -->
-        <%= image_tag(@product.image_url, width: "350", class: "img-responsive img-zoom", data_zoom_image: @product.image_url) %>
-
-        
-        <div class="caption">         
-         
-        </div>
-      </div>        
-    
-      
-    </div> <!-- /col -->
-
-    <!-- Product Details-->   
-    
-    <div class="col-xs-12 col-sm-8 col-md-8 col-lg-8 product-details bg-success">
-      <!-- Product Name -->      
+    <!-- Product Details -->
+    <section id="product-details" class="bg-info col-xs-12 col-sm-8 col-md-8 col-lg-8">
+      <h2>Product Details</h2>
+      <!-- Product Name -->
       <h4><%= @product.name %></h4>
       <!-- Average Rating View -->
       <hr>
       <p>
-        <strong>Average Rating:</strong> 
-        ( &nbsp 
-        <%= pluralize(@product.total_rating.to_f, "customer review") %> 
-        &nbsp )        
-        <div id="average-rating1" class="rated" data-score="<%= @product.average_rating %>">          
+        <strong>Average Rating:</strong>
+        ( &nbsp
+        <%= pluralize(@product.total_rating.to_f, "customer review") %>
+        &nbsp )
+        <div id="average-rating1" class="rated" data-score="<%= @product.average_rating %>">
         </div>
-         
+
       </p>
       <hr>
-      
+
       <p><strong>Name: &nbsp</strong><%= @product.name %></p>
       <p><strong>Description: &nbsp</strong><%= @product.description %></p>
       <p><strong>Color: &nbsp</strong><%= @product.color %></p>
       <p><strong>Location: &nbsp</strong><%= @product.location %></p>
       <p>
-        <strong>Price:</strong> 
+        <strong>Price:</strong>
         &nbsp
         <%= number_to_currency(@product.price, unit: "£", separator: ".", delimiter: "") %>
       </p>
@@ -98,18 +79,22 @@
         <!-- Stripe payment button -->
         <%= form_tag "/payments/create" do %>
           <%= render partial: "shared/stripe_checkout_button" %>
-          <%= hidden_field_tag(:product_id, @product.id) %> 
+          <%= hidden_field_tag(:product_id, @product.id) %>
         <% end %>
       </p>
+    </section><!-- /Product Details -->
 
-    </div> <!-- /col --> 
-    <% end %>  <!-- /Cache -->    
-  </div><!-- /row -->
+    <!-- Product Comments : Current -->
+    <section id="product-comments--current" class="bg-warning col-md-12">
+      <h2>Product Comments</h2>
+      <%= render 'comments' %>
+    </section><!-- /Product Comments -->
 
+    <!-- Product Comments : New -->
+    <section id="product-comments--new" class="bg-danger col-md-12">
+      <h2>New Comments</h2>
+      <%= render 'new_comment' %>
+    </section><!-- /New Comments -->
 
-<%= render 'comments' %>
-
-<div class="container-fluid">
-  <%= render 'new_comment' %>
-</div><!-- /container-fluid -->  
-
+  <% end %>  <!-- /Cache -->
+</div><!-- /row -->

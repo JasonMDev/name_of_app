@@ -2,7 +2,7 @@
 <div class="row">
 
   <!-- Primary Content: Home Page Feature -->
-  <section class="content-primary col-md-5">
+  <section class="content-primary col-md-5">    
 
     <!-- Carousel -->
     <%= render partial: 'landing_carousel' %>
@@ -10,7 +10,7 @@
     <!-- Featured Content -->
     <h2>Featured Content</h2>
     <p>Suspendisse et arcu felis, ac gravida turpis. Suspendisse potenti. Ut porta rhoncus ligula, sed fringilla felis feugiat eget.</p>
-    <p><%= link_to ('Learn more <span class="icon fa fa-arrow-circle-right"></span>').html_safe, products_path, class: "btn btn-feature btn-lg pull-right" %></p>
+    <p><%= link_to ('Learn more <span class="icon fa fa-arrow-circle-right"></span>').html_safe, product_path(@featured_product), class: "btn btn-feature btn-lg pull-right" %></p>
 
   </section><!-- /content-primary -->
 
