@@ -1,45 +1,15 @@
 <!-- Landing Page -->
 <div class="row">
-  
+
   <!-- Primary Content: Home Page Feature -->
   <section class="content-primary col-md-5">
 
-    <!-- Carousel Feature -->
-    <div id="homepage-feature" class="carousel slide" data-ride="carousel">    
-
-      <!-- Carousel Indicators -->
-      <ol class="carousel-indicators">
-        <% (0..(@products.length-1)).each do |n| %>
-        <li data-target="#carousel-example-generic" data-slide-to="<%=n%>" class=<%="active" if n == 0 %>></li>      
-        <% end %> 
-      </ol>
-
-      <!-- Wrapper for slides -->
-      <div class="carousel-inner" role="listbox">
-        <!-- Populate the products on the carousel page. -->
-        <% @products.each do |product| %>
-        <div class="item<%=" active" if product == @products.first %>">
-          <%= image_tag(product.image_url, class: "img-responsive") %>
-          <div class="carousel-caption">
-            <%= product.name %>
-          </div>
-        </div><!-- / Slide X -->
-        <% end %>      
-      </div><!-- / Wrapper for slides -->
-      
-      <!-- Carousel Controls -->
-      <a class="left carousel-control" href="#homepage-feature" role="button" data-slide="prev">
-        <span class="icon fa fa-chevron-left"></span>
-      </a>
-      <a class="right carousel-control" href="#homepage-feature" role="button" data-slide="next">
-        <span class="icon fa fa-chevron-right"></span>
-      </a>
-
-    </div><!-- /#homepage-feature.carousel -->
+    <!-- Carousel -->
+    <%= render partial: 'landing_carousel' %>
 
     <!-- Featured Content -->
     <h2>Featured Content</h2>
-    <p>Suspendisse et arcu felis, ac gravida turpis. Suspendisse potenti. Ut porta rhoncus ligula, sed fringilla felis feugiat eget.</p>    
+    <p>Suspendisse et arcu felis, ac gravida turpis. Suspendisse potenti. Ut porta rhoncus ligula, sed fringilla felis feugiat eget.</p>
     <p><%= link_to ('Learn more <span class="icon fa fa-arrow-circle-right"></span>').html_safe, products_path, class: "btn btn-feature btn-lg pull-right" %></p>
 
   </section><!-- /content-primary -->
@@ -75,4 +45,3 @@
   </section><!-- /content-tertiary -->
 
 </div><!-- /.row -->
-

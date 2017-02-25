@@ -2,7 +2,7 @@
 
 header[role="banner"] {
   .banner-brand {
-    padding-top: 40px;
+    padding-top: 5px;
   }
   > .container {
     position: relative; /* constrain absolute positioned utility nav*/
@@ -30,7 +30,7 @@ header[role="banner"] {
               font-size: 2em;
               line-height: 1.2;
             }
-          }  
+          }
         }
       }
     }
@@ -51,11 +51,11 @@ header[role="banner"] {
 /* NAVBAR */
 /* Navbar toggle */
 .navbar-toggle {
-  float: left; 
+  float: left;
   margin-left: $navbar-padding-horizontal;
 }
 
-/* Navbar nav links */ 
+/* Navbar nav links */
 
 @media (max-width: $grid-float-breakpoint) {
   /* Dropdowns get custom display when collapsed */
@@ -88,14 +88,14 @@ header[role="banner"] {
     > li > a {
       color: $navbar-default-link-color;
 
-      .icon { 
+      .icon {
         color: $gray-light;
       }
 
       &:hover,
       &:focus,
       &:hover .icon,
-      &:focus .icon { 
+      &:focus .icon {
         color: $navbar-default-link-hover-color;
         background-color: $navbar-default-link-hover-bg;
       }
@@ -244,7 +244,7 @@ main {
     border-radius: 10px;
     cursor: pointer;
   }
-  li:hover, 
+  li:hover,
   .active {
     margin: 0;
     width:  12px;
@@ -258,7 +258,7 @@ main {
 
   /*  Scale up the controls a smidge*/
   .carousel-control {
-    .icon-chevron-left, 
+    .icon-chevron-left,
     .icon-chevron-right,
     .icon-prev,
     .icon-next {
@@ -272,7 +272,7 @@ main {
 
 /* BREADCRUMBS */
 .breadcrumb {
-  padding: 0; 
+  padding: 0;
   margin-bottom: $line-height-computed;
   list-style: none;
   background-color: transparent;
@@ -338,9 +338,9 @@ main {
           content: "\f046";
         }
 
-      }  
+      }
     }
-  }    
+  }
 }
 
 /* Clearance Tags*/
@@ -498,7 +498,7 @@ footer[role="contentinfo"] {
     margin-left: 20px;
     font-weight: normal;
   }
-  #user_remember_me {  
+  #user_remember_me {
     height: 15px;
     width: 15px;
     margin: 0;

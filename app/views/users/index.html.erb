@@ -1,57 +1,67 @@
-<!-- Page Header -->
-<div class="page-header center">
-  <h1>Listing Users <small> Showing all user profiles...</small></h1>
-</div> 
+<!-- Users Index Page -->
 
-<!-- Display all users with a table within a panel -->
-<div class="panel panel-info">
-  <!-- Default panel contents -->
-  <div class="panel-heading">All Profiles</div>
-  <div class="panel-body">
-    <p>Below are all the users that are registered. Nulla vitae elit libero, a pharetra augue. Aenean lacinia bibendum nulla sed consectetur. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Nullam id dolor id nibh ultricies vehicula ut id elit. </p>
-  </div>
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
 
-  <!-- Table -->
-  <table class="table table-hover">
+    <!-- Display all users with a table within a panel -->
+    <div class="panel panel-info">
 
-    <!-- Table Header -->
-    <thead>
-      <tr>
-        <th>#</th>
-        <th>First name</th>
-        <th>Last name</th>
-        <% if signed_in? && current_user.admin? %>
-          <th>Show</th>
-          <th>Edit</th>
-          <th>Destroy</th>
-          <th colspan="0"></th>
-        <% end %> 
-      </tr>
-    </thead>
+      <!-- Panel Header -->
+      <div class="panel-heading">
+        <h3 class="panel-title"><strong>Listing All Users </strong></h3>
+      </div>
 
-    <!-- Table Body -->
-    <tbody>
-      <% @users.each do |user| %>
-      <tr>
-        <td><%= user.id %></td>
-        <td><%= user.first_name %></td>
-        <td><%= user.last_name %></td>
-        <% if signed_in? && current_user.admin? %>
-          <td><%= link_to ('<span class="glyphicon glyphicon-blackboard"></span>').html_safe, user, class: "btn btn-success btn-xs" %></td>
-          <td><%= link_to ('<span class="glyphicon glyphicon-pencil"></span>').html_safe, edit_user_path(user), class: "btn btn-warning btn-xs" %></td>
-          <td><%= link_to ('<span class="glyphicon glyphicon-trash"></span>').html_safe, user, class: "btn btn-danger btn-xs", method: :delete, data: { confirm: 'Are you sure?' }%></td>
-        <% end %>  
-      </tr>
-      <% end %>
-    </tbody>
+      <!-- Panel Body -->
+      <div class="panel-body">
 
-  </table>
-</div>
+        <!-- Panel Body Paragraph-->
+        <p>Below are all the users that are registered. </p>
+        <p>Nulla vitae elit libero, a pharetra augue. Aenean lacinia bibendum nulla sed consectetur. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. </p>
 
-<div class="center">
-  <br>
-  <% if signed_in? && current_user.admin? %> 
-    <%= link_to 'New User', new_user_path, class: "btn btn-primary" %>
-  <% end %>  
-</div>
+        <!-- Table -->
+        <table class="table table-hover">
 
+          <!-- Table Header -->
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>First name</th>
+              <th>Last name</th>
+              <% if signed_in? && current_user.admin? %>
+                <th>Show</th>
+                <th>Edit</th>
+                <th>Destroy</th>
+                <!-- <th colspan="0"></th> -->
+              <% end %>
+            </tr>
+          </thead>
+
+          <!-- Table Body -->
+          <tbody>
+            <% @users.each do |user| %>
+            <tr>
+              <td><%= user.id %></td>
+              <td><%= user.first_name %></td>
+              <td><%= user.last_name %></td>
+              <% if signed_in? && current_user.admin? %>
+                <td><%= link_to ('<span class="glyphicon glyphicon-blackboard"></span>').html_safe, user, class: "btn btn-success btn-xs" %></td>
+                <td><%= link_to ('<span class="glyphicon glyphicon-pencil"></span>').html_safe, edit_user_path(user), class: "btn btn-warning btn-xs" %></td>
+                <td><%= link_to ('<span class="glyphicon glyphicon-trash"></span>').html_safe, user, class: "btn btn-danger btn-xs", method: :delete, data: { confirm: 'Are you sure?' }%></td>
+              <% end %>
+            </tr>
+            <% end %>
+          </tbody>
+
+        </table>
+
+      </div> <!-- / panel-body -->
+
+      <!-- Panel Footer -->
+      <div class="panel-footer">
+        <p>Warning: Be a just custodian!</p>
+      </div><!-- / panel-footer -->
+
+    </div> <!-- / panel-wrapper -->
+
+  </div> <!-- / col -->
+</div> <!-- / row -->
