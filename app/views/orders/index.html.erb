@@ -1,83 +1,119 @@
+<!-- Orders Index Page: Uses Angular js -->
+<!-- Page Header -->
+<div class="page-header center">
+  <h1>Listing orders <small>| Bike Basingstoke</small></h1>
+</div>
+
+<!-- Orders Index Page Controller: Uses Angular js -->
 <div ng-controller="OrdersCtrl">
-  <h1>Listing Orders</h1>
 
-  
-  <hr>
-  <form class="form-horizontal" ng-submit="addOrder()">
-    <div class="form-group">
-      <div class="form-group">
-        <strong>Add order:  </strong>
-        <hr>
-      </div>  
+  <div class="row">
 
-      <div class="form-group">
-        <label >Order Id.: </label>
-        <input type="number" class="form-control" value="{{orders[orders.length - 1].id + 1 }}" ng-model="newOrder.id">
-      </div>  
+    <!-- Create Orders -->
+    <div class="col-md-12">
 
-      <div class="form-group">
-        <label >Order Total: </label>
-        <input type="number" class="form-control" step="0.01" class="form-control" placeholder="Total" ng-model="newOrder.total">
-      </div>  
-      
-      <div class="form-group">
-        <label > Select a product</label>
-        <select ng-model="newOrder.product_id" class="form-control">
-          <option value="" disabled selected>Select a product</option>
-          <option ng-repeat="product in products" value="{{product.id}}">{{product.name}}</option>
-        </select>
-      </div>
+      <div class="panel panel-success">
+        <div class="panel-heading">
+          <h4><strong>Add Order</strong></h4>
+          <p>What would youy like to order... ?</p>
+        </div><!-- / panel-heading -->
 
-      <div class="form-group">
-        <label >User: </label>
-        <input type="number" ng-model="newOrder.user_id" value="{{user.id}}">{{user.email}}
-      </div>   
-      
-      <input type="submit" class="btn btn-success" value="Add" >
+        <div class="panel-body">
+          <form class="form" ng-submit="addOrder()">
 
-    </div>
-  </form>
-  <hr>
+              <div class="form-group">
+                <label >Order Id.: </label>
+                <input type="number" class="form-control" value="{{orders[orders.length - 1].id + 1 }}" ng-model="newOrder.id">
+              </div>
 
+              <div class="form-group">
+                <label >Order Total: </label>
+                <input type="number" class="form-control" step="0.01" placeholder="Total" ng-model="newOrder.total">
+              </div>
 
+              <div class="form-group">
+                <label > Select a product</label>
+                <select ng-model="newOrder.product_id" class="form-control">
+                  <option value="" disabled selected>Select a product</option>
+                  <option ng-repeat="product in products" value="{{product.id}}">{{product.name}}</option>
+                </select>
+              </div>
 
+              <div class="form-group">
+                <label >User: </label>
+                <input type="number" ng-model="newOrder.user_id" value="{{user.id}}">{{user.email}}
+              </div>
 
-  <!-- Order Table -->
-  <table class="table table-hover">
+              <input type="submit" class="btn btn-success" value="Add" >
 
-    <!-- Order Table  Header -->
-    <thead>
-      <td><strong>Order ID</strong></td>
-      <td><strong>Total</strong></td>
-      <td><strong>Product</strong></td>
-      <td></td>
-    </thead>
+          </form><!-- / form: add order -->
+        </div><!-- / panel-body -->
 
-    <!-- Order Table Rows with Information -->
-    <tbody>
-      <tr ng-repeat="order in orders | orderBy:'-id':reverse">
-        <td>
-          {{ order.id }}
-          <small ng-show="order.user.email"><br>-{{ order.user.email }}</small>
-        </td>
-        <td>
-          <strong>{{ order.total | currency : "£" }}</strong>
-        </td>
-        <td>
-          {{ order.product.name }}
-        </td>
-        <td>
-          <button ng-click="deleteOrder(order)" class="btn btn-danger btn-sm"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></button>
-        </td>
-      </tr>
-    </tbody>
+        <div class="panel-footer">
+          <p>See order listed below, once completed.</p>
+        </div><!-- / panel-footer -->
 
-  </table>
+      </div><!-- / panel -->
 
+    </div><!-- / row -->
 
+    <!-- Order Table: Listing Orders -->
+    <div class="col-md-12">
 
+      <div class="panel panel-success">
+        <div class="panel-heading">
+          <h3 class="panel-title"><strong>Listing All Orders </strong></h3>
+        </div><!-- / panel-heading -->
+
+        <div class="panel-body">
+          <!-- Panel Body Paragraph-->
+          <p>Below are all the orders that have been placed. </p>
+          <p>Nulla vitae elit libero, a pharetra augue. Aenean lacinia bibendum nulla sed consectetur. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. </p>
+
+          <!-- Table -->
+          <table class="table table-hover">
+
+            <!-- Order Table  Header -->
+            <thead>
+              <td><strong>Order ID</strong></td>
+              <td><strong>Email</strong></td>
+              <td><strong>Total</strong></td>
+              <td><strong>Product</strong></td>
+              <td><strong>Delete</strong></td>
+            </thead>
+
+            <!-- Order Table Rows with Information -->
+            <tbody>
+              <tr ng-repeat="order in orders | orderBy:'-id':reverse">
+                <td>
+                  {{ order.id }}
+                </td>
+                <td>
+                  <small ng-show="order.user.email">{{ order.user.email }}</small>
+                </td>
+                <td>
+                  <strong>{{ order.total | currency : "£" }}</strong>
+                </td>
+                <td>
+                  {{ order.product.name }}
+                </td>
+                <td>
+                  <button ng-click="deleteOrder(order)" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></button>
+                </td>
+              </tr>
+            </tbody>
+
+          </table>
+
+        </div><!-- / panel-body -->
+
+        <div class="panel-footer">
+          <p>Note: Always check your order details!</p>
+        </div><!-- / panel-footer -->
+
+      </div><!-- / panel -->
+
+    </div><!-- /col: table -->
+
+  </div> <!-- /row -->
 </div> <!-- /Orders COntroller -->
-
-
-
-

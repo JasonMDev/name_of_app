@@ -50,17 +50,15 @@
   </p>
 
   <!-- Product Edit Prod.  -->
-  <!-- Admin buttons for edit products -->
-  <p class="admin-buttons center">
-    <% if signed_in? && current_user.admin? %>
-      <!-- Edit button for products -->
-      <%= link_to ('<span class="glyphicon glyphicon-pencil"></span>').html_safe, edit_product_path(product), class: "btn btn-warning btn-xs" %>
-      &nbsp | &nbsp
-      <!-- Delete button for products -->
-      <%= link_to ('<span class="glyphicon glyphicon-remove"></span>').html_safe, product, class: "btn btn-danger btn-xs", method: :delete, data: { confirm: 'Are you sure?' }%>
-      <hr>
-    <% end %>
-  </p> <!-- /admin-buttons -->
+  <!-- Admin buttons for edit products (Not Shown)-->
+
+  <% if signed_in? && current_user.admin? %>
+    <!-- Edit button for products (Not Shown)-->
+    <% link_to ('<span class="glyphicon glyphicon-pencil"></span>').html_safe, edit_product_path(product), class: "btn btn-warning btn-xs" %>
+    <!-- Delete button for products (Not Shown)-->
+    <%link_to ('<span class="glyphicon glyphicon-remove"></span>').html_safe, product, class: "btn btn-danger btn-xs", method: :delete, data: { confirm: 'Are you sure?' }%>
+  <% end %>
+
 
   <!-- Product View Button -->
   <%= link_to 'View this product <i class="fa fa-arrow-circle-right"></i>'.html_safe, product, class: "btn btn-default btn-xs pull-right" %>

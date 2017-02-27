@@ -1,8 +1,9 @@
-<h1>Editing Product</h1>
+<!-- Editing Product -->
+
+<!-- Page Header -->
+<div class="page-header center">
+  <h1>Edit Product <small> with some details...</small></h1>
+	<%= link_to 'Show', @product %>
+</div>
 
 <%= render partial: 'products/form' %>
-
-<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 center">
-	<%= link_to 'Show', @product %> |
-	<%= link_to 'Back', products_path %>
-</div>
