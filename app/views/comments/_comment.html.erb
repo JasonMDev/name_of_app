@@ -1,16 +1,31 @@
-<!-- Individual Comment. -->
+<!-- Individua Comment Panel -->
 
-<div>
-  <hr>
-  <p>
-    <%= comment.user.first_name %> &nbsp 
-    <small><em>
-      <%= "#{ time_ago_in_words(comment.created_at)} ago" %>
-    </em></small> &nbsp
-    <% if signed_in? && current_user.admin? %>
-      <%= link_to ('<span class="glyphicon glyphicon-remove"></span>').html_safe, product_comment_path(@product, comment), method: :delete, data: { confirm: 'Are you sure?' }%>
-    <% end %>  
-  </p>
-  <div class="rated" data-score="<%= comment.rating %>"></div>     
-  <p><%= comment.body %></p>
-</div><!-- /Individual Comment. -->
+<div class="panel panel-success">
+  <div class="panel-body bg-success">
+
+    <!-- Info -->
+    <p>
+
+      <!-- Info about User-->
+      <%= comment.user.first_name %> &nbsp
+
+      <!-- Time Created -->
+      <small><em>
+        <%= "#{ time_ago_in_words(comment.created_at)} ago" %>
+      </em></small> &nbsp
+
+      <!-- Deletion Button -->
+      <% if signed_in? && current_user.admin? %>
+        <%= link_to ('<span class="glyphicon glyphicon-remove"></span>').html_safe, product_comment_path(@product, comment), method: :delete, data: { confirm: 'Are you sure?' }%>
+      <% end %>
+
+    </p>
+
+    <!-- Rating -->
+    <div class="rated" data-score="<%= comment.rating %>"></div>
+
+    <!-- Comment Body -->
+    <p><%= comment.body %></p>
+
+  </div><!-- / panel-body -->
+</div><!-- / panel -->

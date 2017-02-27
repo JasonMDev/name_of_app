@@ -22,79 +22,83 @@
   <li class="active"><%= @product.name %></li>
   <div class="pull-right">
     <!-- Buttons floated to the right -->
-    <%= link_to ('<span class="glyphicon glyphicon-check"></span> &nbsp Add to basket ').html_safe, edit_product_path(@product), class: "btn btn-primary btn-xs", role: "button" %>
-    <%= link_to ('<span class="glyphicon glyphicon-backward"></span> &nbsp Back ').html_safe, products_path, class: "btn btn-primary btn-xs", role: "button" %>
     <% if signed_in? && current_user.admin? %>
+      <!-- Product Edit Button -->
       <%= link_to ('<span class="glyphicon glyphicon-edit"></span>').html_safe, edit_product_path(@product), class: "btn btn-warning btn-xs" %>
+      <!-- Product Delete Button -->
       <%= link_to ('<span class="glyphicon glyphicon-trash"></span>').html_safe, @product, class: "btn btn-danger btn-xs", method: :delete, data: { confirm: 'Are you sure?' }%>
     <% end %>
+    <!-- Back Button -->
+    <%= link_to ('<span class="glyphicon glyphicon-backward"></span> &nbsp Back ').html_safe, products_path, class: "btn btn-primary btn-xs", role: "button" %>
+    <!-- Add to Basket Button -->
+    <%= link_to ('<span class="glyphicon glyphicon-check"></span> &nbsp Add to basket ').html_safe, edit_product_path(@product), class: "btn btn-primary btn-xs", role: "button" %>
   </div>
 </ul><!-- / Bread Crumb -->
 
 <!-- Page Header -->
 <div class="page-header center">
-  <h1><%= @product.name %>&nbsp | &nbsp<small><%= @product.description %></small></h1>
+  <h1><%= @product.name %>&nbsp <small><%= @product.description %></small></h1>
 </div>
 
 <!-- Body of Page -->
 <div class="row">
+  <!-- Products Details-->
+  <div class="col-md-12">
   <!-- Cache Wrapper for individual product -->
   <% cache @product do %>
 
-    <!-- Product Image -->
-    <section id="product-image" class="bg-success col-xs-12 col-sm-4 col-md-4 col-lg-4">
-      <!-- Product Image -->
-      <h2>Product Image</h2>
-      <%= image_tag(@product.image_url, width: "350", class: "img-responsive img-zoom", data_zoom_image: @product.image_url) %>
-    </section><!-- /Product Image -->
+    <!-- Main Panel Wrapper -->
+    <div class="panel panel-success">
 
-    <!-- Product Details -->
-    <section id="product-details" class="bg-info col-xs-12 col-sm-8 col-md-8 col-lg-8">
-      <h2>Product Details</h2>
-      <!-- Product Name -->
-      <h4><%= @product.name %></h4>
-      <!-- Average Rating View -->
-      <hr>
-      <p>
-        <strong>Average Rating:</strong>
-        ( &nbsp
-        <%= pluralize(@product.total_rating.to_f, "customer review") %>
-        &nbsp )
-        <div id="average-rating1" class="rated" data-score="<%= @product.average_rating %>">
-        </div>
+      <div class="panel-body">
+        <!-- Product Image -->
+        <div id="product-image" class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+          <!-- Product Image -->
+          <%= image_tag(@product.image_url, width: "350", class: "img-responsive img-zoom center-block", data_zoom_image: @product.image_url) %>
+          <hr>
+        </div><!-- /Product Image -->
 
-      </p>
-      <hr>
+        <!-- Product Details -->
+        <div id="product-details" class="col-xs-12 col-sm-8 col-md-8 col-lg-8">
+          <!-- Average Rating View -->
+          <p>
+            <strong>Average Rating:</strong>
+            ( &nbsp <%= pluralize(@product.total_rating.to_f, "customer review") %> &nbsp )
+            <div id="average-rating1" class="rated" data-score="<%= @product.average_rating %>"></div>
+          </p>
 
-      <p><strong>Name: &nbsp</strong><%= @product.name %></p>
-      <p><strong>Description: &nbsp</strong><%= @product.description %></p>
-      <p><strong>Color: &nbsp</strong><%= @product.color %></p>
-      <p><strong>Location: &nbsp</strong><%= @product.location %></p>
-      <p>
-        <strong>Price:</strong>
-        &nbsp
-        <%= number_to_currency(@product.price, unit: "£", separator: ".", delimiter: "") %>
-      </p>
-      <p>
-        <!-- Stripe payment button -->
+          <!-- Product Details -->
+          <p><strong>Detailed Description: &nbsp</strong>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris malesuada nisl ac arcu accumsan aliquet. Donec efficitur arcu vitae est auctor, id pretium mi pulvinar. Donec ut lectus convallis, venenatis augue vulputate, ornare ante. Phasellus non porttitor diam. Nullam ac sem eu odio bibendum aliquam pretium sed erat. Nam in consectetur lacus, sed blandit justo. Quisque faucibus, eros vel porta laoreet, eros lorem consequat magna, in laoreet lorem arcu cursus ante. Pellentesque viverra, nisi quis faucibus consectetur, massa metus dignissim metus, sit amet varius arcu urna ac risus.</p>
+          <p><strong>Color: &nbsp</strong><%= @product.color %></p>
+          <p><strong>Location: &nbsp</strong><%= @product.location %></p>
+          <p><strong>Price:</strong> &nbsp <%= number_to_currency(@product.price, unit: "£", separator: ".", delimiter: "") %></p>
+
+        </div><!-- /Product Details -->
+
+      </div><!-- / panel-body -->
+
+      <div class="panel-footer">
+        <!-- Stripe Payment button -->
         <%= form_tag "/payments/create" do %>
-          <%= render partial: "shared/stripe_checkout_button" %>
-          <%= hidden_field_tag(:product_id, @product.id) %>
+        <%= render partial: "shared/stripe_checkout_button" %>
+        <%= hidden_field_tag(:product_id, @product.id) %>
         <% end %>
-      </p>
-    </section><!-- /Product Details -->
+      </div><!-- / panel-footer -->
 
-    <!-- Product Comments : Current -->
-    <section id="product-comments--current" class="bg-warning col-md-12">
-      <h2>Product Comments</h2>
-      <%= render 'comments' %>
-    </section><!-- /Product Comments -->
+    </div><!-- / panel -->
 
-    <!-- Product Comments : New -->
-    <section id="product-comments--new" class="bg-danger col-md-12">
-      <h2>New Comments</h2>
-      <%= render 'new_comment' %>
-    </section><!-- /New Comments -->
+  <% end %>  <!-- /Cache Products -->
+</div> <!-- / Products Details-->
 
-  <% end %>  <!-- /Cache -->
+  <!-- Product Comments : Current -->
+  <div id="product-comments--current" class="col-md-12">
+    <%= render 'comments' %>
+  </div><!-- /Product Comments -->
+
+  <!-- Product Comments : New -->
+  <div id="product-comments--new" class="col-md-12">
+    <%= render 'new_comment' %>
+  </div><!-- /New Comments -->
+
+
 </div><!-- /row -->
