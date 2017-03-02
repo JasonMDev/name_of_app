@@ -1,6 +1,7 @@
 # BikeBasingstoke
 A demo e-commerce website using the Rails Framework.
 See [*link*](https://bikebasingstokerailsdemo.herokuapp.com).
+![Alt text](app/assets/images/landing_page.jpg?raw=true "Hompage")
 
 ## Introduction
 An e-commerce website using the Ruby-on-Rails Framework. This is the main web development project [*CareerFoundry Web Developer Course*](https://careerfoundry.com/en/courses/become-a-web-developer/). It is a Ruby on Rails app.
